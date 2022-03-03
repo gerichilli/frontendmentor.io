@@ -27,7 +27,8 @@ body {
     background: var(--dark-cyan, hsl(185, 75%, 39%));
     background-image: url(images/bg-pattern-top.svg), url(images/bg-pattern-bottom.svg);
     background-repeat: no-repeat;
-    background-position: -22.5vw -40vh, 50vw 50vh;
+    background-position: -50% -33.75vw, 150% 50vh;
+    background-size: 67.5vw auto;
     color: var(--dark-gray-blue, hsl(227, 10%, 46%));
     min-height: 100vh;
 
