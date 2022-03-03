@@ -1,0 +1,124 @@
+/* BASE */
+:root {
+    --dark-cyan: hsl(185, 75%, 39%);
+    --dark-blue: hsl(229, 23%, 23%);
+    --dark-gray-blue: hsl(227, 10%, 46%);
+    --light-gray: hsl(228, 8%, 92%);
+    --avartar-size: 10.1rem;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    list-style: none;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background: var(--dark-cyan, hsl(185, 75%, 39%));
+    background-image: url(images/bg-pattern-top.svg), url(images/bg-pattern-bottom.svg);
+    background-repeat: no-repeat;
+    background-position: -22.5vw -40vh, 50vw 50vh;
+    color: var(--dark-gray-blue, hsl(227, 10%, 46%));
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+    flex-grow: 1;
+}
+
+.card {
+    max-width: 35rem;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 5rem 10rem -2rem rgba(8, 70, 94, 0.5);
+    overflow: hidden;
+}
+
+.card-header {
+    width: 100%;
+    height: 14rem;
+    background: url(images/bg-pattern-card.svg) no-repeat;
+    background-size: cover;
+}
+
+.card-body {
+    position: relative;
+    padding-top: calc(var(--avartar-size, 10.1rem) / 2);
+    text-align: center;
+}
+
+.card-img {
+    width: var(--avartar-size, 10.1rem);
+    height: var(--avartar-size, 10.1rem);
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    overflow: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-img img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.card-title {
+    padding-top: 1rem;
+    padding-bottom: 2.8rem;
+}
+
+.card-user {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.card-user h3 {
+    font-weight: bold;
+    color: var(--dark-blue, hsl(229, 23%, 23%));
+    margin-right: 0.8rem;
+}
+
+.card-country {
+    font-size: 1.4rem;
+}
+
+.card-bottom {
+    border-top: 1px solid var(--light-gray, hsl(228, 8%, 92%));
+    padding: 2.2rem 0;
+}
+
+.card-infos {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card-info-number {
+    font-weight: bold;
+    color: var(--dark-blue, hsl(229, 23%, 23%));
+}
+
+.card-info-title {
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+}
