@@ -14,6 +14,6 @@ This is where I store the solutions from Frontend Mentor Challenges
 
 | Challenges name   | Related tags  | Preview Link  |
 | ----------------- |:-------------:| -----:|
-| **[02 Advice generator app challenge hub](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20Advice%20generator%20app%20challenge%20hub)** | HTML, CSS | *[Link](https://sharp-mayer-6828fc.netlify.app/)* |
+| **[02 Advice generator app challenge hub](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20Advice%20generator%20app%20challenge%20hub)** | HTML, SCSS, JS, API | *[Link](https://sharp-mayer-6828fc.netlify.app/)* |
 |          |      |    |
 |      |      |    |
