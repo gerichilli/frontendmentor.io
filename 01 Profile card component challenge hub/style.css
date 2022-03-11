@@ -4,7 +4,7 @@
     --dark-blue: hsl(229, 23%, 23%);
     --dark-gray-blue: hsl(227, 10%, 46%);
     --light-gray: hsl(228, 8%, 92%);
-    --avartar-size: 10.1rem;
+    --avartar-size: 10.6rem;
 }
 
 *, *::before, *::after {
@@ -37,15 +37,18 @@ body {
     justify-content: center;
 }
 
+main {
+    width: 100%;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+}
+
 .container {
-    margin-left: 2.4rem;
-    margin-right: 2.4rem;
-    flex-grow: 1;
+    max-width: 35rem;
+    margin: 0 auto;
 }
 
 .card {
-    max-width: 35rem;
-    margin: 0 auto;
     background-color: #ffffff;
     border-radius: 1.5rem;
     box-shadow: 0 5rem 10rem -2rem rgba(8, 70, 94, 0.5);
@@ -84,8 +87,8 @@ body {
 }
 
 .card-title {
-    padding-top: 1rem;
-    padding-bottom: 2.8rem;
+    padding-top: 1.8rem;
+    padding-bottom: 2.1rem;
 }
 
 .card-user {
@@ -94,10 +97,11 @@ body {
     justify-content: center;
 }
 
-.card-user h3 {
+.card-user h1 {
+    font-size: 1.8rem;
     font-weight: bold;
     color: var(--dark-blue, hsl(229, 23%, 23%));
-    margin-right: 0.8rem;
+    margin-right: 1.6rem;
 }
 
 .card-country {
@@ -106,7 +110,7 @@ body {
 
 .card-bottom {
     border-top: 1px solid var(--light-gray, hsl(228, 8%, 92%));
-    padding: 2.2rem 0;
+    padding: 2.3rem 0 2.2rem;
 }
 
 .card-infos {
@@ -115,6 +119,7 @@ body {
 }
 
 .card-info-number {
+    font-size: 1.8rem;
     font-weight: bold;
     color: var(--dark-blue, hsl(229, 23%, 23%));
 }
