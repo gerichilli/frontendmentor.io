@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Frontend Mentor | Advice generator app</title>
+
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <h1 class="d-none">Advice generator app</h1>
+      <div class="card" id="advice">
+        <div class="card__heading">
+          Advice #<span id="advice-counter">1</span>
+        </div>
+        <div class="card__body" id="card-body">
+          <!-- <div class="loading">
+            <div class="loading__icon">
+              <svg class="loading__svg" width="60" height="60" viewBox="-10 -10 60 60">
+                <ellipse class="circle2" cx="20" cy="20" rx="20" ry="20" stroke="#53FFAA" stroke-width="3"
+                  fill-opacity="0"></ellipse>
+                <ellipse class="circle1" cx="20" cy="20" rx="20" ry="20" stroke="#4F5D74" stroke-width="3"
+                  fill-opacity="0">
+                </ellipse>
+              </svg>
+            </div>
+          </div> -->
+          <!-- <p class="card__txt"></p> -->
+          <!-- <p class="card__error"></p> -->
+        </div>
+        <div class="card__divider">
+          <picture>
+            <source media="(max-width: 599px)" srcset="images/pattern-divider-mobile.svg">
+            <source media="(min-width: 600px)" srcset="images/pattern-divider-desktop.svg">
+            <img src="images/pattern-divider-desktop.svg" alt="Divider">
+          </picture>
+        </div>
+        <button class="card__dice" id="card-dice">
+          <img src="images/icon-dice.svg" alt="Dice">
+        </button>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>
