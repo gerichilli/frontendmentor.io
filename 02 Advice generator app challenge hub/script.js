@@ -8,19 +8,19 @@ let adviceCounter = 0
 const renderAdvice = (advice) => {
     const adviceEl = document.createElement('p')
     adviceEl.className = 'card__txt'
-    adviceEl.textContent = advice
+    adviceEl.innerHTML = advice
     cardBody.innerHTML = ''
     cardBody.appendChild(adviceEl)
 }
 
 const renderCounter = () => {
-    adviceCounterEl.textContent = adviceCounter
+    adviceCounterEl.innerHTML = adviceCounter
 }
 
 const renderError = (errorMessage) => {
     const errorEl = document.createElement('p')
     errorEl.className = 'card__error'
-    errorEl.textContent = errorMessage
+    errorEl.innerHTML = errorMessage
     cardBody.innerHTML = ''
     cardBody.appendChild(errorEl)
 }
