@@ -6,9 +6,8 @@ const API_URL = 'https://api.adviceslip.com/advice'
 let adviceCounter = 0
 
 const renderAdvice = (advice) => {
-    const adviceEl = document.createElement('p')
-    adviceEl.className = 'card__txt'
-    adviceEl.innerHTML = advice
+    const adviceEl = document.createElement('blockquote')
+    adviceEl.innerHTML = `<p class="card__txt">${advice}</p>`
     cardBody.innerHTML = ''
     cardBody.appendChild(adviceEl)
 }
