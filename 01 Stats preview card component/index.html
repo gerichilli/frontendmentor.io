@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Frontend Mentor | Stats preview card component</title>
+
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <div class="card">
+        <div class="card__left">
+          <h1 class="card__title">
+            Get <span class="highlight">insights</span> that help your business grow.
+          </h1>
+          <p class="card__txt">
+            Discover the benefits of data analytics and make better decisions regarding revenue, customer
+            experience, and overall efficiency.
+          </p>
+          <ul class="card__list">
+            <li class="card__item">
+              <span class="card__number">
+                <span class="counter" data-target="10" data-speed="1">0</span>k+
+              </span>
+              <span class="card__label">companies</span>
+            </li>
+            <li class="card__item">
+              <span class="card__number">
+                <span class="counter" data-target="314" data-speed="10">0</span>
+              </span>
+              <span class="card__label">templates</span>
+            </li>
+            <li class="card__item">
+              <span class="card__number">
+                <span class="counter" data-target="12" data-speed="1">0</span>M+
+              </span>
+              <span class="card__label">queries</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card__right">
+          <!-- <picture>
+            <source media="(max-width: 599px)" srcset="images/image-header-mobile.jpg">
+            <source media="(min-width: 600px)" srcset="images/image-header-desktop.jpg">
+            <img src="images/image-header-desktop.jpg" alt="">
+          </picture> -->
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
