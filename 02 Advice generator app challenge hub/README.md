@@ -1,4 +1,4 @@
-# Frontend Mentor - Stats preview card component solution
+# Frontend Mentor - Advice generator app solution
 ![Design preview for the Advice generator app coding challenge](./design/desktop-preview.jpg)
 
 ## Table of contents
