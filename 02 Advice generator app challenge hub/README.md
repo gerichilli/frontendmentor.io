@@ -24,8 +24,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20Advice%20generator%20app%20challenge%20hub)
-- Live Site URL: [Add live site URL here](https://sharp-mayer-6828fc.netlify.app/)
+- Solution URL: [Solution URL here](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20Advice%20generator%20app%20challenge%20hub)
+- Live Site URL: [Live site URL here](https://sharp-mayer-6828fc.netlify.app/)
 
 ## My process
 

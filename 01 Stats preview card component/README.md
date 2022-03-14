@@ -23,8 +23,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/gerichilli/frontendmentor.io/tree/main/01%20Stats%20preview%20card%20component)
-- Live Site URL: [Add live site URL here](https://optimistic-engelbart-4585ab.netlify.app/)
+- Solution URL: [Solution URL here](https://github.com/gerichilli/frontendmentor.io/tree/main/01%20Stats%20preview%20card%20component)
+- Live Site URL: [Live site URL here](https://optimistic-engelbart-4585ab.netlify.app/)
 
 ## My process
 
