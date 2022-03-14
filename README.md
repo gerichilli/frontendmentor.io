@@ -1,6 +1,6 @@
 # frontendmentor.io
 
-This is where I store the solutions from Frontend Mentor Challenges
+This is where I store the solutions for Frontend Mentor Challenges
 
 ## Level 1: Newbie Challenges
 
