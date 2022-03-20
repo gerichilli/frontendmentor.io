@@ -1,0 +1,124 @@
+/* HEADER */
+.header {
+    &__inner {
+        width: 100%;
+    }
+
+    &__top {
+        grid-column: main-start / main-end;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 3.4375rem;
+        padding-bottom: 0.6875rem;
+
+        @media screen and (max-width: 900px) {
+            padding-top: 2.5rem;
+        }
+
+        @media screen and (max-width: 767px) {
+            padding-top: 1.5rem;
+            padding-bottom: 0;
+        }
+    }
+
+    &__infos {
+        grid-column: main-start / span 5;
+        padding-top: 3.75rem;
+
+        @media screen and (max-width: 900px) {
+            grid-column: main-start / span 6;
+        }
+
+        @media screen and (max-width: 767px) {
+            grid-column: main-start / main-end;
+            padding-top: 0;
+        }
+    }
+
+    &__txt {
+        margin-top: 1.5rem;
+        margin-bottom: 2.5rem;
+        font-size: 1.125rem;
+
+        @media screen and (max-width: 900px) {
+            font-size: 1rem;
+            margin-top: 2.125rem;
+        }
+    }
+
+    &__time {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-left: 2.5rem;
+
+        @media screen and (max-width: 900px) {
+            margin-left: 1.75rem;
+        }
+    }
+
+    &__img {
+        grid-column: 8 / main-end;
+
+        @media screen and (max-width: 900px) {
+            grid-column: 9 / spacing-r-end;
+            width: 29.875rem; 
+            height: 26.5625rem;
+        }
+
+        @media screen and (max-width: 767px) {
+            grid-column: main-start / spacing-r-end;
+            width: 100%;
+            height: 25rem;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        @media screen and (max-width: 560px) {
+            height: 20.6875rem;
+        }
+    }
+}
+
+.logo {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* GRID */
+.d-grid {
+    --spacing: calc((100% - var(--container-width) - var(--gutter-x) * 2) / 2);
+
+    @media screen and (max-width: 1200px) {
+        --spacing: 2rem;
+    }
+
+    @media screen and (max-width: 900px) {
+        --spacing: 1.875rem;
+    }
+
+    @media screen and (max-width: 767px) {
+        --spacing: 1rem;
+    }
+
+    display: grid;
+    grid-template-columns: [spacing-l-start] var(--spacing) [spacing-l-end main-start] repeat(12, 1fr) [main-end spacing-r-start] var(--spacing) [spacing-r-end];
+    row-gap: var(--gutter-y);
+    column-gap: var(--gutter-x);
+    margin-bottom: var(--gutter);
+}
+
+/* FOOTER */
+.copyright {
+    text-align: center;
+    margin-bottom: 2.4375rem;
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 3.125rem;
+    }
+}

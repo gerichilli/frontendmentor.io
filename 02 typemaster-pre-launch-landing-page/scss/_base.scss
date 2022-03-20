@@ -1,0 +1,69 @@
+:root {
+    --primary: #F16718;
+    --blue-dark: #162542;
+    --blue-medium: #7B8BAD;
+    --blur: #E8EFF2;
+    --white: #FFFFFF;
+    --btn: #F16718;
+    --btn-hover: #FF9B62;
+
+    --btn-curved: 0.5rem;
+    --img-curved: 1.25rem;
+    --icon-curved: 1rem;
+
+    --container-width: 69.375rem;
+    --gutter: 1.875rem;
+    --gutter-x: 1.875rem;
+    --gutter-y: 4.5rem;
+
+    @media screen and (min-width: 1800px) {
+        --container-width: 87.5rem;
+    }
+
+    @media screen and (max-width: 900px) {
+        --gutter: 2.5rem;
+        --gutter-x: 0.625rem;
+    }
+
+    @media screen and (max-width: 767px) {
+        --gutter: 1.5rem;
+        --gutter-x: 0.5rem;
+        --gutter-y: 4rem;
+    }
+}
+
+$primary: var(--primary, #F16718);
+$text-bold: var(--blue-dark, #162542);
+$text-main: var(--blue-medium, #7B8BAD);
+$tint: var(--blur, #E8EFF2);
+
+$btn-primary: var(--primary, #F16718);
+$btn-primary-txt: var(--white, #FFFFFF);
+$btn-primary-hover: var(--btn-hover, #FF9B62);
+$btn-secondary: var(--blur, #E8EFF2);
+$btn-secondary-hover: var(--blue-dark, #162542);
+$btn-secondary-txt: var(--blue-dark, #162542);
+$btn-secondary-txt-hover: var(--white, #FFFFFF);
+$btn-curved: var(--btn-curved, 0.5rem);
+
+$img-curved: var(--img-curved, 1.25rem);
+$icon-curved: var(--icon-curved, 1rem);
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.625;
+    color: $text-main;
+    overflow-x: hidden;
+}
