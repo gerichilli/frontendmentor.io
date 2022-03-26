@@ -41,3 +41,4 @@ Users should be able to:
 
 - Using role="list" for ul/ol element when setting list-style: none in CSS
 - Using role="listitem" for li element when setting list-style: none in CSS
+- Using aria-label="" for link element: Ensures that every link has an accessible name.

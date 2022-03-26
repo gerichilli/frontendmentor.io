@@ -55,6 +55,7 @@
 /* DECORATE BOX */
 .decoration {
     background-color: $tint;
+    height: 14.75rem;
 
     @media screen and (max-width: 900px) {
         display: none;
@@ -67,7 +68,6 @@
     }
 
     &--left {
-        height: 14.75rem;
         align-self: end;
         grid-column: spacing-l-start / spacing-l-end;
         border-top-right-radius: $img-curved;
