@@ -16,4 +16,5 @@ This is where I store the solutions for Frontend Mentor Challenges
 | ----------------- |:-------------:| -----:|
 | **[02 Advice generator app challenge hub](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20Advice%20generator%20app%20challenge%20hub)** | HTML, SCSS, JS, API | *[Link](https://sharp-mayer-6828fc.netlify.app/)* |
 | **[02 Typemaster pre-launch landing page](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20typemaster-pre-launch-landing-page)** | HTML, SCSS | *[Link](https://zen-almeida-0fa578.netlify.app/)* |
+| **[02 Testimonials grid section](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20Testimonials%20grid%20section)** | HTML, SCSS | *[Link](https://steady-kleicha-8208fe.netlify.app/)* |
 |      |      |    |
