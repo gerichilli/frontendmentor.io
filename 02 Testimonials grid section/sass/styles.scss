@@ -125,6 +125,29 @@ body {
     --card-bg: var(--dark);
   }
 
+  // CARD MARK
+
+  &--quoted {
+    position: relative;
+
+    & > * {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__quote-mark {
+    position: absolute;
+    top: 0;
+    right: 5rem;
+    width: 6.5rem;
+    z-index: 0;
+
+    @include tabport() {
+      right: 1.5rem;
+    }
+  }
+
   // CARD USER
   &__user {
     display: flex;
