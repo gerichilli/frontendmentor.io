@@ -1,0 +1,32 @@
+.reset-btn {
+  display: block;
+  width: 100%;
+  background-color: var(--accent);
+  color: var(--primary);
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-top: auto;
+  transition: background-color 0.2s;
+
+  @include tab {
+    font-size: 1.25rem;
+  }
+
+  @include tab-port {
+    margin-top: 0.5rem;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: var(--form-hover);
+  }
+
+  &:focus {
+    box-shadow: 0 0 10px 0 var(--accent);
+  }
+
+  &:disabled {
+    background-color: var(--dark);
+  }
+}
