@@ -81,6 +81,7 @@ function moveCursorToEnd(el) {
 }
 
 function init() {
+  resetForm();
   calc();
 }
 
