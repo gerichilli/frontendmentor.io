@@ -94,6 +94,7 @@ main {
 .card {
   background-color: var(--card-bg);
   padding: 2rem;
+  margin-bottom: 4.75rem;
   border-radius: 1.5625rem;
   box-shadow: 0 2rem 2.6875rem rgba(79, 166, 175, 0.2);
 
@@ -102,6 +103,7 @@ main {
   @include tab {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+    margin-bottom: 0;
   }
 
   @include tab-port {

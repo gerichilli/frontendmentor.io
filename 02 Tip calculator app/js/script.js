@@ -20,23 +20,18 @@ function calcTotal(bill, tip, numOfPeople) {
 }
 
 function getTipPercent() {
-  if (customTipEl.value) {
-    return customTipEl.value;
-  } else {
-    const checkedEl = Array.from(tipsEls).filter(
-      (el) => el.checked === true
-    )[0];
-
-    return checkedEl ? checkedEl.value : 0;
-  }
+  let tipValue = 0;
+  const checkedEl = Array.from(tipsEls).filter((el) => el.checked === true)[0];
+  tipValue = checkedEl ? checkedEl.value : customTipEl.value;
+  return tipValue;
 }
 
 function calc() {
   const bill = +billEl.value;
   const numOfPeople = +numOfPeopleEl.value;
   const tip = +getTipPercent();
-  tipAmountEl.textContent = calcTip(bill, tip, numOfPeople);
-  totalEl.textContent = calcTotal(bill, tip, numOfPeople);
+  tipAmountEl.textContent = `$${calcTip(bill, tip, numOfPeople)}`;
+  totalEl.textContent = `$${calcTotal(bill, tip, numOfPeople)}`;
 }
 
 function resetForm() {
