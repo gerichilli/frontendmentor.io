@@ -40,11 +40,18 @@ emailEl.addEventListener("change", function () {
 });
 
 /* TIMELINE */
-let tl = gsap.timeline();
-tl.from("#demo", { opacity: 0 });
-tl.from(".logo", { left: 10, opacity: 0 }, "<0.5");
-tl.from(".info__title .light", { x: 80, opacity: 0, ease: "back", duration: 0.8 });
-tl.from(".info__title .bold", { x: -80, opacity: 0, ease: "back", duration: 0.8 }, "<0.3");
-tl.from(".info__desc", { y: 80, opacity: 0 }, "<0.3");
-tl.from(".form", { transformOrigin: "left", scaleX: 0.4, opacity: 0 });
-tl.from(".right", { duration: 1.2, "clip-path": "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" }, 0.5);
+let tl = gsap.timeline({ defaults: { opacity: 0 } });
+
+function init() {
+  tl.from("#demo", { ease: "linear", autoAlpha: 0 });
+  tl.from(".logo", { left: 10 }, "<0.5");
+  tl.from(".info__title .light", { x: 80, ease: "back", duration: 1 });
+  tl.from(".info__title .bold", { x: -80, ease: "back", duration: 1 }, "<0.3");
+  tl.from(".info__desc", { y: 80, ease: "back" }, "<0.3");
+  tl.from(".form", { transformOrigin: "left", scaleX: 0.4 }, "<0.5");
+  tl.from(".right", { duration: 1.2, "clip-path": "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" }, 0.5);
+}
+
+window.addEventListener("load", function () {
+  init();
+});
