@@ -1,0 +1,33 @@
+{
+  "name": "02-github-user-search-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js, jsx}\"",
+    "format:check": "prettier --check \"src/**/*.{js, jsx}\"",
+    "lint": "eslint \"src/**/*.{js, jsx}\" --quiet",
+    "dev": "parcel src/index.html",
+    "build": "rimraf dist && parcel build src/index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "@parcel/transformer-sass": "^2.6.0",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "parcel": "^2.6.0",
+    "process": "^0.11.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
+}
