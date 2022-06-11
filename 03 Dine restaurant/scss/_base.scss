@@ -1,0 +1,32 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  background-repeat: no-repeat;
+}
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $ff-base;
+  font-size: $fs-base;
+  font-weight: 400;
+  line-height: 1.67;
+  letter-spacing: -0.01267em;
+  color: $clr-base;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  max-width: 75%;
+  min-width: 69.375rem;
+  margin: 0 auto;
+}

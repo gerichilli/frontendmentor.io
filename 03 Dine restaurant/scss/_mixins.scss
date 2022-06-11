@@ -1,0 +1,62 @@
+@mixin respond($breakpoint) {
+  // 1200px
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+
+  // 1000px
+  @if $breakpoint == tab {
+    @media only screen and (max-width: 62.5em) {
+      @content;
+    }
+  }
+
+  // 768px
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 48em) {
+      @content;
+    }
+  }
+
+  // 640px
+  @if $breakpoint == tab-small {
+    @media only screen and (max-width: 40em) {
+      @content;
+    }
+  }
+
+  // 560px
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 35em) {
+      @content;
+    }
+  }
+
+  // 460px
+  @if $breakpoint == phone-md {
+    @media only screen and (max-width: 28.75em) {
+      @content;
+    }
+  }
+}
+
+@mixin respondImage() {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+// Minimize the amount of non-essential motion
+@mixin reducedMotion() {
+  @media (prefers-reduced-motion) {
+    @content;
+  }
+}
+
+@function convertPxToRem($pxValue) {
+  $pxValue: $pxValue / 16px;
+  $result: $pxValue * 1rem;
+  @return $result;
+}

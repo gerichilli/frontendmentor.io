@@ -1,0 +1,62 @@
+/*  INDEX
+-----------------------------------------------*/
+.intro {
+  margin-top: -5rem;
+  margin-bottom: -5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.menu {
+  background-color: $clr-ntrl-max;
+  color: $clr-ntrl-min;
+  padding: 12.5rem 0 7.5rem;
+
+  &__list {
+    margin-top: 3rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      padding-top: 1.5rem;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  &__img {
+    flex: 0 0 8rem;
+    height: 6rem;
+    overflow: hidden;
+    margin-right: 3.875rem;
+    position: relative;
+  }
+
+  &__info {
+    position: relative;
+  }
+
+  &__decor {
+    position: absolute;
+    top: 1.125rem;
+    left: -1.875rem;
+    width: 2rem;
+    height: 1px;
+    background-color: $clr-primary;
+    transform: translateX(-100%);
+  }
+
+  &__ttl {
+    margin-bottom: 0.25rem;
+  }
+
+  &__txt {
+    line-height: 1.5;
+  }
+}

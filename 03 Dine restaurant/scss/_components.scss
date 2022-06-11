@@ -1,0 +1,91 @@
+/* BUTTONS
+-----------------------------------------------*/
+.btn {
+  display: inline-block;
+  font-size: $fs-milli;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1.143;
+  letter-spacing: 0.15em;
+  padding: 1.5rem 4rem;
+  transition: all 0.2s;
+
+  &:focus {
+    box-shadow: 2px 2px 1px 4px $clr-primary, 0px 0px 1px 4px $clr-primary;
+  }
+
+  &--ghost {
+    --changeToClr: #{$clr-ntrl-min};
+    background-color: transparent;
+    color: currentColor;
+    border: 1px solid currentColor;
+
+    &:hover {
+      background-color: var(--changeToClr);
+      color: $clr-base-dk;
+    }
+  }
+
+  &--bubble {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s;
+
+    @include reducedMotion {
+      transition: all 0.2s;
+    }
+
+    span {
+      position: absolute;
+      width: 25%;
+      height: 100%;
+      background-color: var(--changeToClr);
+      border-radius: 50%;
+      top: 0;
+      left: calc((var(--nth) - 1) * 25%);
+      transform: translateY(150%) rotate(-5deg);
+      transition: 0.4s;
+      transition-delay: calc((var(--nth) - 1) * 0.05s);
+      z-index: -1;
+
+      @include reducedMotion {
+        display: none;
+      }
+
+      &:nth-child(1) {
+        --nth: 1;
+      }
+
+      &:nth-child(2) {
+        --nth: 2;
+      }
+
+      &:nth-child(3) {
+        --nth: 3;
+      }
+
+      &:nth-child(4) {
+        --nth: 4;
+      }
+    }
+
+    &:hover span {
+      transform: translateY(0) scale(1.5) rotate(0);
+    }
+  }
+}
+
+/* SKIPLINK
+-----------------------------------------------*/
+.skiplink:focus {
+  position: absolute;
+  width: auto !important;
+  height: auto !important;
+  top: 2rem !important;
+  left: 2rem !important;
+  color: inherit;
+  clip: unset;
+  padding: 0.5rem 2rem;
+  transition: none !important;
+}
