@@ -19,4 +19,5 @@ This is where I store the solutions for Frontend Mentor Challenges
 | **[02 Typemaster pre-launch landing page](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20typemaster-pre-launch-landing-page)** | HTML, SCSS | *[Link](https://zen-almeida-0fa578.netlify.app/)* |
 | **[02 Testimonials grid section](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20Testimonials%20grid%20section)** | HTML, SCSS | *[Link](https://steady-kleicha-8208fe.netlify.app/)* |
 | **[02 Tip calculator app](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20Tip%20calculator%20app)** | HTML, SCSS | *[Link](https://comforting-kataifi-200f00.netlify.app/)* |
+| **[02 GitHub user search app](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20Tip%20calculator%20app)** | HTML, SCSS | *[Link]([https://comforting-kataifi-200f00.netlify.app/](https://gihub-user-search-app.netlify.app/))* |
 |      |      |    |
