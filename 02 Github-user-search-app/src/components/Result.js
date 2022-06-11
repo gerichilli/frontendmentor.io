@@ -28,9 +28,8 @@ const Result = ({ userData }) => {
           <p>Joined {formatDate(userData.created_at)}</p>
           <a href={userData.html_url}>@{userData.login}</a>
         </div>
-        <p className="user__desc">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-          Quisque volutpat mattis eros.
+        <p className={`user__desc ${userData.bio ? "" : "unavailable"}`}>
+          {userData.bio || "This profile has no bio"}
         </p>
         <dl className="user__infos">
           <div>

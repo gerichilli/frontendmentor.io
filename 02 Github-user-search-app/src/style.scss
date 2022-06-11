@@ -350,20 +350,11 @@ a {
       position: relative;
       padding-left: 2rem;
       margin-top: 1rem;
-      word-break: break-all;
 
       &,
       &:link,
       &:visited {
         color: var(--clr-contrast);
-      }
-
-      &.unavailable {
-        opacity: 0.5;
-
-        &:hover {
-          text-decoration: none;
-        }
       }
 
       svg {
@@ -373,6 +364,14 @@ a {
         top: 50%;
         transform: translateY(-50%);
       }
+    }
+  }
+
+  .unavailable {
+    opacity: 0.5;
+
+    &:hover {
+      text-decoration: none;
     }
   }
 }
@@ -493,6 +492,11 @@ a {
 
     &__links {
       flex-direction: column;
+
+      a,
+      p {
+        word-break: break-all;
+      }
     }
   }
 }
