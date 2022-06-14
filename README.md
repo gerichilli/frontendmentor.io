@@ -21,3 +21,8 @@ This is where I store the solutions for Frontend Mentor Challenges
 | **[02 Tip calculator app](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20Tip%20calculator%20app)** | HTML, SCSS | *[Link](https://comforting-kataifi-200f00.netlify.app/)* |
 | **[02 GitHub user search app](https://github.com/gerichilli/frontendmentor.io/tree/main/02%20Github-user-search-app)** | REACT, React Hook, API | *[Link](https://gihub-user-search-app.netlify.app/)* |
 |      |      |    |
+
+## Level 3: Intermediate Challenges
+| Challenges name   | Related tags  | Preview Link  |
+| ----------------- |:-------------:| -----:|
+| **[03 Job listings with filtering](https://github.com/gerichilli/frontendmentor.io/tree/main/03%20Job%20listings%20with%20filtering)** | HTML, SCSS, JS | *[Link](https://dev-job-filtering.netlify.app/)* |
