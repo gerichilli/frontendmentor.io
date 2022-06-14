@@ -1,0 +1,21 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^5.0.0",
+    "postcss-scss": "^3.0.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.3",
+    "postcss-cli": "^8.3.1"
+  },
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" css/style.comp.css -o css/style.css"
+  },
+  "author": "",
+  "license": "ISC"
+}

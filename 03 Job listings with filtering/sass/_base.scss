@@ -1,0 +1,62 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff);
+  font-size: var(--ff-base);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.0075em;
+  background-color: var(--clr-contrast-low);
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-primary);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 72.375rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.main {
+  margin-top: 4.75rem;
+  padding-bottom: 7.5rem;
+
+  @include respond(tab-port) {
+    margin-top: 3.5rem;
+    padding-bottom: 4.25rem;
+  }
+
+  &--active {
+    margin-top: 2.5rem;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}

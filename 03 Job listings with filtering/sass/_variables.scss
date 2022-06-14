@@ -1,0 +1,29 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  }
+}
+
+:root {
+  --clr-primary: #5ca5a5;
+  --clr-primary-lg: rgba(92, 165, 165, 0.1);
+  --clr-contrast-low: #effafa;
+  --clr-contrast-lower: #ffffff;
+  --clr-contrast-hg: #7c8f8f;
+  --clr-contrast-hgest: #2b3939;
+
+  // Typography:
+  --ff: "League Spartan", Arial, Verdana, sans-serif;
+  --fs-base: 1rem;
+
+  // Others
+  --card-shadow: 0px 15px 20px -5px rgba(13, 113, 130, 0.15);
+}
