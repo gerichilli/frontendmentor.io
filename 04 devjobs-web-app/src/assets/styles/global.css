@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+@layer base {
+    :root {
+        --clr-background: 244, 246, 248;
+        --clr-primary-100: 147, 155, 244;
+        --clr-primary: 89, 100, 224;
+        --clr-contrast-50: 255, 255, 255;
+        --clr-contrast-100: 157, 174, 194;
+        --clr-contrast-800: 25, 32, 45;
+        --clr-contrast: 110, 128, 152;
+    }
+}
+
+@layer components {
+    .job-card {
+        @apply bg-contrast-50 relative rounded-md p-8 pt-12 h-full flex flex-col transition-shadow;
+    }
+
+    .job-logo {
+        @apply absolute left-8 bottom-full translate-y-2/4 w-13 h-13 rounded-2xl flex items-center justify-center
+    }
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Kumbh Sans", "sans-serif";
+    font-size: 1rem;
+}
