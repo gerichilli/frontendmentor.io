@@ -12,7 +12,17 @@
     box-sizing: inherit;
 }
 
-@layer base {
+:root {
+    --clr-background: 244, 246, 248;
+    --clr-primary-100: 147, 155, 244;
+    --clr-primary: 89, 100, 224;
+    --clr-contrast-50: 255, 255, 255;
+    --clr-contrast-100: 157, 174, 194;
+    --clr-contrast-800: 25, 32, 45;
+    --clr-contrast: 110, 128, 152;
+}
+
+@media (prefers-color-scheme: light) {
     :root {
         --clr-background: 244, 246, 248;
         --clr-primary-100: 147, 155, 244;
@@ -24,13 +34,63 @@
     }
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --clr-background: 18, 23, 33;
+        --clr-contrast-50: 25, 32, 45;
+        --clr-contrast-800: 255, 255, 255;
+    }
+}
+
+.theme-light {
+    --clr-background: 244, 246, 248;
+    --clr-primary-100: 147, 155, 244;
+    --clr-primary: 89, 100, 224;
+    --clr-contrast-50: 255, 255, 255;
+    --clr-contrast-100: 157, 174, 194;
+    --clr-contrast-800: 25, 32, 45;
+    --clr-contrast: 110, 128, 152;
+}
+
+.theme-dark {
+    --clr-background: 18, 23, 33;
+    --clr-contrast-50: 25, 32, 45;
+    --clr-contrast-800: 255, 255, 255;
+}
+
 @layer components {
     .job-card {
         @apply bg-contrast-50 relative rounded-md p-8 pt-12 h-full flex flex-col transition-shadow;
     }
 
+    .job-card:hover {
+        @apply shadow-lg;
+    }
+
     .job-logo {
-        @apply absolute left-8 bottom-full translate-y-2/4 w-13 h-13 rounded-2xl flex items-center justify-center
+        @apply absolute left-8 bottom-full translate-y-2/4 w-13 h-13 rounded-2xl flex items-center justify-center;
+    }
+
+    .btn-primary {
+        @apply inline-block whitespace-nowrap bg-primary text-white text-center font-bold py-4 leading-4 rounded-md;
+    }
+
+    .btn-primary:hover {
+        @apply bg-primary-100;
+    }
+
+    .btn-secondary {
+        @apply inline-block whitespace-nowrap bg-primary bg-opacity-10 text-primary font-bold px-5 py-4 leading-4 rounded-md;
+    }
+
+    ol {
+        counter-reset: will-do-counter;
+    }
+
+    ol li::before {
+        counter-increment: will-do-counter;
+        content: "" counter(will-do-counter) "";
+        @apply block shrink-0 text-primary font-bold mr-8;
     }
 }
 
@@ -41,4 +101,20 @@ html {
 body {
     font-family: "Kumbh Sans", "sans-serif";
     font-size: 1rem;
+}
+
+.header-bg {
+    background-image: url(/public/assets/images/mobile/bg-pattern-header.svg);
+}
+
+@media screen(sm) {
+    .header-bg {
+        background-image: url(/public/assets/images/tablet/bg-pattern-header.svg);
+    }
+}
+
+@media screen(md) {
+    .header-bg {
+        background-image: url(/public/assets/images/desktop/bg-pattern-header.svg);
+    }
 }
