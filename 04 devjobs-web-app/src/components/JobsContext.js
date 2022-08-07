@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 import { data } from "../data";
 
 export const JobsContext = createContext();
@@ -34,16 +34,19 @@ function reducer(state, action) {
 
 export function JobProvider({ children }) {
   const [jobs, dispatch] = useReducer(reducer, data);
+  const [maxJobs, setMaxJobs] = useState(12);
 
   function searchJobs(query) {
     dispatch({ type: "SEARCH_JOBS", payload: query });
+    setMaxJobs(12); // Reset maxJobs to 12 when search is performed
   }
 
   function refreshJobs() {
     dispatch({ type: "REFRESH_JOBS" });
+    setMaxJobs(12); // Reset maxJobs to 12 when refresh is performed
   }
 
-  const value = { jobs, searchJobs, refreshJobs };
+  const value = { jobs, searchJobs, refreshJobs, maxJobs, setMaxJobs };
 
   return <JobsContext.Provider value={value}>{children}</JobsContext.Provider>;
 }

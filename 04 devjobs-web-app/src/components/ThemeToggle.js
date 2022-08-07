@@ -37,7 +37,7 @@ function ThemeToggle() {
           checked={theme === "dark" ? true : false}
           onChange={changeTheme}
         />
-        <div className="w-12 h-6 bg-white peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-6 peer-checked:after:bg-primary-100 after:content-[''] after:absolute after:top-[5px] after:left-[5px] after:rounded-full after:h-3.5 after:w-3.5 after:bg-primary after:transition-all"></div>
+        <span className="block w-12 h-6 bg-white peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-6 peer-checked:after:bg-primary-100 after:content-[''] after:absolute after:top-[5px] after:left-[5px] after:rounded-full after:h-3.5 after:w-3.5 after:bg-primary after:transition-all"></span>
         <span className="sr-only">Toggle Theme</span>
       </label>
       <IconMoon />
