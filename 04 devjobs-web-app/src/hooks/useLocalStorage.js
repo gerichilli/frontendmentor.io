@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const useLocalStorage = (initialState, key) => {
-  const get = () => {
+function useLocalStorage(initialState, key) {
+  function get() {
     const storage = localStorage.getItem(key);
 
     if (storage) {
@@ -9,7 +9,7 @@ const useLocalStorage = (initialState, key) => {
     } else {
       return initialState;
     }
-  };
+  }
 
   const [value, setValue] = useState(get());
 
@@ -18,6 +18,6 @@ const useLocalStorage = (initialState, key) => {
   });
 
   return [value, setValue];
-};
+}
 
 export default useLocalStorage;

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { ReactComponent as IconSun } from "../assets/images/icon-sun.svg";
 import { ReactComponent as IconMoon } from "../assets/images/icon-moon.svg";
 import useLocalStorage from "../hooks/useLocalStorage";
 
-const ThemeToggle = () => {
+function ThemeToggle() {
   let initialTheme = "light";
 
   if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -16,10 +16,10 @@ const ThemeToggle = () => {
     document.documentElement.className = `theme-${theme}`;
   }, [theme]);
 
-  const changeTheme = () => {
+  function changeTheme() {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
-  };
+  }
 
   return (
     <div className="flex items-center">
@@ -43,6 +43,6 @@ const ThemeToggle = () => {
       <IconMoon />
     </div>
   );
-};
+}
 
 export default ThemeToggle;

@@ -1,32 +1,33 @@
 import { ReactComponent as IconLocation } from "../assets/images/icon-location.svg";
 import { ReactComponent as IconCheck } from "../assets/images/icon-check.svg";
 
-const JobFilter = ({
+function JobsFilter({
   location,
   isFullTime,
   onLocationChange,
   onFullTimeChange,
-}) => {
+}) {
   return (
-    <div className="flex grow">
+    <div className="flex flex-col sm:flex-row grow">
       <label
         htmlFor="location"
-        className="grow flex items-center border-r border-contrast/20 py-4 xl:px-8 px-5"
+        className="grow flex items-center border-b sm:border-b-0 sm:border-r border-contrast/20 py-4 px-6 sm:px-5 xl:px-8 "
       >
         <IconLocation className="mr-2 shrink-0" aria-hidden={true} />
+        <span className="sr-only">Location</span>
         <input
           type="text"
           name="location"
           id="location"
           placeholder="Filter by location…"
-          className="grow w-full h-full px-2 bg-transparent text-contrast-800 focus:outline-none focus:ring focus:ring-primary-100/20"
+          className="grow w-full h-full p-2 bg-transparent text-contrast-800 focus:outline-none focus:ring focus:ring-primary-100/20"
           value={location}
           onChange={onLocationChange}
         />
       </label>
       <label
         htmlFor="fullTime"
-        className="my-4 ml-4 flex items-center cursor-pointer"
+        className="m-6 sm:my-4 sm:ml-4 flex items-center cursor-pointer"
       >
         <div className="relative">
           <input
@@ -48,6 +49,6 @@ const JobFilter = ({
       </label>
     </div>
   );
-};
+}
 
-export default JobFilter;
+export default JobsFilter;
