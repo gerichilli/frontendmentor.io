@@ -22,6 +22,9 @@ function Header() {
           <ThemeToggle />
         </div>
       </div>
+      <h1 className="sr-only">
+        Search for jobs. Search by location. Find jobs near you
+      </h1>
     </header>
   );
 }

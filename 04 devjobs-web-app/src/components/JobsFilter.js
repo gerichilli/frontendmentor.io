@@ -29,7 +29,7 @@ function JobsFilter({
         htmlFor="fullTime"
         className="m-6 sm:my-4 sm:ml-4 flex items-center cursor-pointer"
       >
-        <div className="relative">
+        <span className="relative">
           <input
             type="checkbox"
             name="isFullTime"
@@ -42,7 +42,7 @@ function JobsFilter({
           <div className="peer opacity-0 peer-checked:opacity-100 absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
             <IconCheck aria-hidden={true} />
           </div>
-        </div>
+        </span>
         <span className="ml-4 font-bold text-contrast-800 whitespace-nowrap">
           Full Time <span className="hidden xl:inline">Only</span>
         </span>
