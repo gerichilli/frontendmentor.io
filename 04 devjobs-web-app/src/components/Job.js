@@ -25,11 +25,11 @@ function Job({
           <span className="inline-block w-1 h-1 rounded-sm mx-3 bg-contrast"></span>
           <span>{contract}</span>
         </div>
-        <h3 className="text-contrast-800 font-bold text-xl pt-2 pb-3">
+        <h2 className="text-contrast-800 font-bold text-xl pt-2 pb-3">
           {position}
-        </h3>
+        </h2>
         <p>{company}</p>
-        <p className="text-primary font-bold text-sm pt-16 mt-auto">
+        <p className="text-primary font-bold text-sm pt-10 mt-auto">
           {location}
         </p>
       </Link>

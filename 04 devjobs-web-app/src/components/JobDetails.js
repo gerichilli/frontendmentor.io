@@ -19,9 +19,9 @@ function JobDetails({ jobID }) {
 
           <div className="p-8 pt-13 lg:px-10 sm:py-10-5 grow flex flex-col sm:flex-row items-center sm:ml-35">
             <div className="sm:mr-4 text-center sm:text-left">
-              <h1 className="text-contrast-800 text-xl sm:text-2xl font-bold">
+              <h2 className="text-contrast-800 text-xl sm:text-2xl font-bold">
                 {job.company}
-              </h1>
+              </h2>
               <p>{job.website}</p>
             </div>
             <a
