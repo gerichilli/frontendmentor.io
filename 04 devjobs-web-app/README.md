@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Link](https://github.com/gerichilli/frontendmentor.io/tree/main/04%20devjobs-web-app)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Github Jobs](https://github-jobs-filter.netlify.app/)
 
 ## My process
 
