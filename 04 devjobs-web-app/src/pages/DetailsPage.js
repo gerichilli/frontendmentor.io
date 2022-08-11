@@ -7,7 +7,10 @@ function DetailsPage() {
   const { id } = useParams();
   return (
     <ScrollToTop>
-      <Layout>
+      <Layout 
+        title="Github Job - Job Details" 
+        description="Read more about the job"
+      >
         <JobDetails jobID={id} />
       </Layout>
     </ScrollToTop>

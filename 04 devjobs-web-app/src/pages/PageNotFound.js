@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout";
 function PageNotFound() {
   return (
     <ScrollToTop>
-      <Layout>
+      <Layout title="Page not found" description="Page can not be found">
         <div className="mt-28 text-center px-5">
           <h1 className="font-bold text-2xl text-primary">
             404 Error <br />
