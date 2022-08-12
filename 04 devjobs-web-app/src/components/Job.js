@@ -22,7 +22,7 @@ function Job({
         </div>
         <div className="flex items-center">
           <span>{postedAt}</span>
-          <span className="inline-block w-1 h-1 rounded-sm mx-3 bg-contrast"></span>
+          <span className="inline-block w-1 h-1 rounded-sm mx-3 bg-contrast" />
           <span>{contract}</span>
         </div>
         <h2 className="text-contrast-800 font-bold text-xl pt-2 pb-3">

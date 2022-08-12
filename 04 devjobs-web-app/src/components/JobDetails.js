@@ -37,7 +37,7 @@ function JobDetails({ jobID }) {
             <div className="sm:mr-4 self-start">
               <div className="flex items-center">
                 <span>{job.postedAt}</span>
-                <span className="inline-block w-1 h-1 rounded-sm mx-3 bg-contrast"></span>
+                <span className="inline-block w-1 h-1 rounded-sm mx-3 bg-contrast"/>
                 <span>{job.contract}</span>
               </div>
               <h2 className="text-contrast-800 font-bold text-xl sm:text-2-5xl py-2 leading-7">

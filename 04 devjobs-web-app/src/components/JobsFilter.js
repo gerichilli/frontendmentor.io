@@ -38,7 +38,7 @@ function JobsFilter({
             checked={isFullTime}
             onChange={onFullTimeChange}
           />
-          <span className="block peer w-6 h-6 bg-contrast-800 bg-opacity-10 rounded peer-checked:bg-primary peer-checked:bg-opacity-100"></span>
+          <span className="block peer w-6 h-6 bg-contrast-800 bg-opacity-10 rounded peer-checked:bg-primary peer-checked:bg-opacity-100"/>
           <span className="block peer opacity-0 peer-checked:opacity-100 absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
             <IconCheck aria-hidden={true} />
           </span>
