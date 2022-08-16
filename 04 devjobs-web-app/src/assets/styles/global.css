@@ -19,7 +19,7 @@
     --clr-contrast-50: 255, 255, 255;
     --clr-contrast-100: 157, 174, 194;
     --clr-contrast-800: 25, 32, 45;
-    --clr-contrast: 110, 128, 152;
+    --clr-contrast: 74, 91, 104;
 }
 
 @media (prefers-color-scheme: light) {
@@ -30,7 +30,7 @@
         --clr-contrast-50: 255, 255, 255;
         --clr-contrast-100: 157, 174, 194;
         --clr-contrast-800: 25, 32, 45;
-        --clr-contrast: 110, 128, 152;
+        --clr-contrast: 74, 91, 104;
     }
 }
 
@@ -39,7 +39,7 @@
         --clr-background: 18, 23, 33;
         --clr-contrast-50: 25, 32, 45;
         --clr-contrast-800: 255, 255, 255;
-        --clr-contrast: 157, 174, 194;
+        --clr-contrast: 154, 174, 183;
     }
 }
 
@@ -50,13 +50,14 @@
     --clr-contrast-50: 255, 255, 255;
     --clr-contrast-100: 157, 174, 194;
     --clr-contrast-800: 25, 32, 45;
-    --clr-contrast: 110, 128, 152;
+    --clr-contrast: 74, 91, 104;
 }
 
 .theme-dark {
     --clr-background: 18, 23, 33;
     --clr-contrast-50: 25, 32, 45;
     --clr-contrast-800: 255, 255, 255;
+    --clr-contrast: 154, 174, 183;
 }
 
 @layer components {
