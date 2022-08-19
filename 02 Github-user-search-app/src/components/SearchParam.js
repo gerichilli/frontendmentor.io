@@ -48,7 +48,7 @@ const SearchParam = () => {
           onChange={(e) => setUsername(e.target.value)}
         />
         {error && <p>No results</p>}
-        <button>Search</button>
+        <button type="submit">Search</button>
       </form>
       <section className="card result">
         {loading ? (

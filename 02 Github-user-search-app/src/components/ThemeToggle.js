@@ -18,6 +18,7 @@ const ThemeToggle = () => {
       className="toggle-theme"
       aria-label="Change theme"
       onClick={() => setTheme(nextTheme)}
+      type="button"
     >
       <span>{nextTheme}</span>
       {theme === "dark" ? <IconSun /> : <IconMoon />}

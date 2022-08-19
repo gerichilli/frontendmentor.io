@@ -19,15 +19,10 @@ function JobDetails({ jobID }) {
 
           <div className="p-8 pt-13 lg:px-10 sm:py-10-5 grow flex flex-col sm:flex-row items-center sm:ml-35">
             <div className="sm:mr-4 text-center sm:text-left">
-              <h2 className="text-contrast-800 text-xl sm:text-2xl font-bold">
-                {job.company}
-              </h2>
+              <h2 className="text-contrast-800 text-xl sm:text-2xl font-bold">{job.company}</h2>
               <p>{job.website}</p>
             </div>
-            <a
-              href={job.website}
-              className="btn-secondary sm:ml-auto mt-6 sm:mt-0 hover:bg-opacity-30 "
-            >
+            <a href={job.website} className="btn-secondary sm:ml-auto mt-6 sm:mt-0 hover:bg-opacity-30 ">
               Company Site
             </a>
           </div>
@@ -37,26 +32,19 @@ function JobDetails({ jobID }) {
             <div className="sm:mr-4 self-start">
               <div className="flex items-center">
                 <span>{job.postedAt}</span>
-                <span className="inline-block w-1 h-1 rounded-sm mx-3 bg-contrast"/>
+                <span className="inline-block w-1 h-1 rounded-sm mx-3 bg-contrast" />
                 <span>{job.contract}</span>
               </div>
-              <h2 className="text-contrast-800 font-bold text-xl sm:text-2-5xl py-2 leading-7">
-                {job.position}
-              </h2>
+              <h2 className="text-contrast-800 font-bold text-xl sm:text-2-5xl py-2 leading-7">{job.position}</h2>
               <p className="text-primary font-bold text-sm">{job.location}</p>
             </div>
-            <a
-              href={job.apply}
-              className="btn-primary max-w-sm w-full sm:w-fit sm:ml-auto mt-13 sm:mt-0 xl:px-7 px-4"
-            >
+            <a href={job.apply} className="btn-primary max-w-sm w-full sm:w-fit sm:ml-auto mt-13 sm:mt-0 xl:px-7 px-4">
               Apply Now
             </a>
           </div>
           <p className="leading-relaxed text-contrast-700">{job.description}</p>
           <section className="my-10">
-            <h3 className="text-xl font-bold text-contrast-800 mb-5">
-              Requirements
-            </h3>
+            <h3 className="text-xl font-bold text-contrast-800 mb-5">Requirements</h3>
             <p className="leading-relaxed">{job.requirements.content}</p>
             <ul role="list" className="mt-5 marker:text-primary list-disc">
               {job.requirements.items.map((item, index) => (
@@ -70,9 +58,7 @@ function JobDetails({ jobID }) {
             </ul>
           </section>
           <section>
-            <h3 className="text-xl font-bold text-contrast-800 mb-5">
-              What You Will Do
-            </h3>
+            <h3 className="text-xl font-bold text-contrast-800 mb-5">What You Will Do</h3>
             <p className="leading-relaxed">{job.role.content}</p>
             <ol role="list" className="mt-5 list-inside">
               {job.role.items.map((item, index) => (
@@ -87,15 +73,10 @@ function JobDetails({ jobID }) {
       <div className="bg-contrast-50 py-6 sm:py-4">
         <div className="container px-6 lg:px-10 max-w-3xl flex justify-center sm:justify-between items-center">
           <div className="mr-4 hidden sm:block">
-            <h2 className="text-contrast-800 font-bold text-xl py-2 leading-7">
-              {job.position}
-            </h2>
+            <h2 className="text-contrast-800 font-bold text-xl py-2 leading-7">{job.position}</h2>
             <p>{job.company}</p>
           </div>
-          <a
-            href={job.apply}
-            className="btn-primary max-w-sm w-full sm:w-fit xl:px-7 px-4"
-          >
+          <a href={job.apply} className="btn-primary max-w-sm w-full sm:w-fit xl:px-7 px-4">
             Apply Now
           </a>
         </div>
@@ -103,13 +84,8 @@ function JobDetails({ jobID }) {
     </>
   ) : (
     <div className="text-center mt-24 px-5">
-      <p className="font-bold text-2xl text-primary">
-        It looks like this job doesn't exist
-      </p>
-      <Link
-        to="/"
-        className="block mt-10 hover:text-primary hover:underline hover:underline-offset-8"
-      >
+      <p className="font-bold text-2xl text-primary">It looks like this job doesn&apos;t exist</p>
+      <Link to="/" className="block mt-10 hover:text-primary hover:underline hover:underline-offset-8">
         Back to Homepage
       </Link>
     </div>

@@ -33,6 +33,7 @@ function JobsList() {
               <button
                 className="bg-primary hover:bg-primary-100 text-white font-bold py-3 px-8 rounded-md"
                 onClick={handleLoadMoreJob}
+                type="button"
               >
                 Load More
               </button>
@@ -40,9 +41,7 @@ function JobsList() {
           )}
         </>
       ) : (
-        <p className="text-center text-xl font-bold">
-          No jobs match your search
-        </p>
+        <p className="text-center text-xl font-bold">No jobs match your search</p>
       )}
     </div>
   );
