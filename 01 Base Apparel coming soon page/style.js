@@ -30,7 +30,7 @@ form.addEventListener("submit", function (event) {
 });
 
 form.addEventListener("keydown", function (event) {
-  event.preventDefault;
+  event.preventDefault();
   displayFormError();
 });
 
