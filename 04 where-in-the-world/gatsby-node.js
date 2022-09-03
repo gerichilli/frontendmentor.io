@@ -73,6 +73,12 @@ exports.createPages = async ({ actions, graphql }) => {
           slug
         }
       }
+      allRegion {
+        nodes {
+          id
+          slug
+        }
+      }
     }
   `);
 
@@ -81,15 +87,30 @@ exports.createPages = async ({ actions, graphql }) => {
     return;
   }
 
-  const resultData = result.data.allCountry.nodes;
+  const allCountry = result.data.allCountry.nodes;
 
-  resultData.forEach((country) => {
+  allCountry.forEach((country) => {
     createPage({
       path: `/country/${country.slug}`,
       component: require.resolve(`${__dirname}/src/templates/country.js`),
       context: {
         id: country.id,
         slug: country.slug,
+      },
+    });
+  });
+
+  const allRegion = result.data.allRegion.nodes;
+
+  allRegion.forEach((region) => {
+    createPage({
+      path: `/region/${region.slug}`,
+      component: require.resolve(
+        `${__dirname}/src/templates/regionCountries.js`,
+      ),
+      context: {
+        id: region.id,
+        slug: region.slug,
       },
     });
   });

@@ -4,7 +4,7 @@ import * as styles from '../styles/CountryCard.module.scss';
 
 function CountryCard({ name, slug, flagSVG, population, region, capital }) {
   return (
-    <Link to={`country/${slug}`} className={styles.card}>
+    <Link to={`/country/${slug}`} className={styles.card}>
       <div className={styles.flag}>
         <img src={flagSVG} alt={name} />
       </div>

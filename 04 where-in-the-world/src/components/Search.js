@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as styles from '../styles/Search.module.scss';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 
 function Search() {
   const data = useStaticQuery(graphql`
@@ -8,6 +8,7 @@ function Search() {
       allRegion {
         nodes {
           id
+          slug
           name
         }
       }
@@ -71,7 +72,9 @@ function Search() {
         {isDropdownOpen && (
           <ul className={styles.dropdown}>
             {regions.map((region) => (
-              <li key={region.id}>{region.name}</li>
+              <li key={region.id}>
+                <Link to={`/region/${region.slug}`}>{region.name}</Link>
+              </li>
             ))}
           </ul>
         )}

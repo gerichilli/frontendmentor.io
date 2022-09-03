@@ -1,34 +1,9 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import CountryCard from './CountryCard';
 import * as styles from '../styles/CountryList.module.scss';
 
-function CountryList() {
-  const data = useStaticQuery(graphql`
-    query GetAllCountries {
-      allCountry {
-        nodes {
-          id
-          slug
-          name {
-            common
-          }
-          flags {
-            svg
-          }
-          population
-          region {
-            name
-          }
-          capital
-        }
-      }
-    }
-  `);
-
-  const countries = data?.allCountry?.nodes;
-
-  return countries && countries.length > 0 ? (
+function CountryList({ countries }) {
+  return (
     <section>
       <ul className={styles.cards}>
         {countries.map((country) => {
@@ -49,8 +24,6 @@ function CountryList() {
         })}
       </ul>
     </section>
-  ) : (
-    <p>Sorry, we can't find data</p>
   );
 }
 

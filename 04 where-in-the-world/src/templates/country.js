@@ -4,7 +4,6 @@ import Layout from '../components/Layout';
 import * as styles from '../styles/CountryPage.module.scss';
 
 function CountryPage({ data }) {
-  console.log(data.country.borderCountries);
   const countryData = data?.country;
 
   const {
@@ -101,17 +100,17 @@ function CountryPage({ data }) {
                   <div className={styles.line}>
                     <dt>Border Countries: </dt>
                     <dd>
-                      {borderCountries &&
-                        borderCountries.length > 0 &&
-                        borderCountries.map((b) => (
-                          <Link
-                            to={`/country/${b.slug}`}
-                            key={b.name}
-                            className={styles.tag}
-                          >
-                            {b.name}
-                          </Link>
-                        ))}
+                      {borderCountries && borderCountries.length > 0
+                        ? borderCountries.map((b) => (
+                            <Link
+                              to={`/country/${b.slug}`}
+                              key={b.name}
+                              className={styles.tag}
+                            >
+                              {b.name}
+                            </Link>
+                          ))
+                        : 'none'}
                     </dd>
                   </div>
                 </dl>
@@ -119,7 +118,9 @@ function CountryPage({ data }) {
             </div>
           </section>
         ) : (
-          <p>Sorry, we can't find data</p>
+          <div className="error-wrapper">
+            <p className="error-message">Sorry, we can't find data</p>
+          </div>
         )}
       </Layout>
     </>

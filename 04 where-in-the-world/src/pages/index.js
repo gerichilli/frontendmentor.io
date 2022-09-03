@@ -1,17 +1,33 @@
 import * as React from 'react';
-import CountryList from '../components/CountryList';
-import Layout from '../components/Layout';
-import Search from '../components/Search';
+import { graphql, useStaticQuery } from 'gatsby';
+import ListLayout from '../components/ListLayout';
 
 const IndexPage = () => {
-  return (
-    <>
-      <Layout>
-        <Search />
-        <CountryList />
-      </Layout>
-    </>
-  );
+  const data = useStaticQuery(graphql`
+    query GetAllCountries {
+      allCountry {
+        nodes {
+          id
+          slug
+          name {
+            common
+          }
+          flags {
+            svg
+          }
+          population
+          region {
+            name
+          }
+          capital
+        }
+      }
+    }
+  `);
+
+  const countries = data?.allCountry?.nodes;
+
+  return <ListLayout countries={countries} />;
 };
 
 export default IndexPage;

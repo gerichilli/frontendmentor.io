@@ -68,7 +68,7 @@ resolve: `gatsby-source-graphql`,
 },
 ```
 
-** Not use anymore **
+** I source data by my self instead **
 
 - install data
 - source data
@@ -91,6 +91,10 @@ resolve: `gatsby-source-graphql`,
 - create page for all countries by createPage API
   - template: `/src/templates/country.js`
   - path: `/country/country.slug`
+
+### 6. Create page for each filter
+
+### 7. Styling error status and make the pages responsive
 
 ### 6. Infinite scrolling
 
