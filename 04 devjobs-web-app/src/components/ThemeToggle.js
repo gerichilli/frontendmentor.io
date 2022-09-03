@@ -24,10 +24,8 @@ function ThemeToggle() {
   return (
     <div className="flex items-center">
       <IconSun />
-      <label
-        htmlFor="default-toggle"
-        className="inline-flex relative items-center cursor-pointer mx-4"
-      >
+      <label htmlFor="default-toggle" className="inline-flex relative items-center cursor-pointer mx-4">
+        <span className="sr-only">Dark Mode</span>
         <input
           type="checkbox"
           value=""
@@ -38,7 +36,6 @@ function ThemeToggle() {
           onChange={changeTheme}
         />
         <span className="block w-12 h-6 bg-white peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-6 peer-checked:after:bg-primary-100 after:content-[''] after:absolute after:top-[5px] after:left-[5px] after:rounded-full after:h-3.5 after:w-3.5 after:bg-primary after:transition-all" />
-        <span className="sr-only">Toggle Theme</span>
       </label>
       <IconMoon />
     </div>

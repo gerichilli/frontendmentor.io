@@ -1,0 +1,182 @@
+@use './mixins.scss' as mixins;
+
+.content {
+  margin-top: 5rem;
+  display: flex;
+  align-items: flex-start;
+
+  @include mixins.respond(xxl) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include mixins.respond(md) {
+    margin-top: 4rem;
+  }
+
+  @include mixins.respond(sm) {
+    margin-top: 2.5rem;
+  }
+}
+
+.button {
+  display: inline-block;
+  color: var(--text-color);
+  background: var(--element-bg);
+  box-shadow: 0px 0px 7px var(--card-shadow);
+  border-radius: 6px;
+  padding: 0.625rem 2rem;
+  text-decoration: none;
+
+  svg {
+    fill: currentColor;
+    margin-right: 0.625rem;
+  }
+
+  &:hover {
+    color: var(--active-color);
+  }
+}
+
+.flag {
+  overflow: hidden;
+  flex-grow: 1;
+  flex-basis: 43.75%;
+  max-width: 37.5rem;
+  position: relative;
+  border-radius: 10px;
+
+  @include mixins.respond(xxl) {
+    max-width: 32rem;
+    width: 100%;
+    margin-bottom: 5rem;
+  }
+
+  @include mixins.respond(xl) {
+    margin-bottom: 3rem;
+  }
+
+  @include mixins.respond(md) {
+    margin-bottom: 1.5rem;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: 71.6%;
+  }
+
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.name {
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 2.75rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info {
+  flex-basis: 56.25%;
+  padding-left: 7.5rem;
+
+  @include mixins.respond(xxl) {
+    padding-left: 0;
+  }
+}
+
+.info_row {
+  display: flex;
+
+  & > * + * {
+    margin-left: 7.5rem;
+
+    @include mixins.respond(xxl) {
+      margin-left: 5rem;
+    }
+
+    @include mixins.respond(xl) {
+      margin-left: 3rem;
+    }
+
+    @include mixins.respond(sm) {
+      margin-left: 0;
+    }
+  }
+
+  @include mixins.respond(sm) {
+    flex-direction: column;
+  }
+}
+
+.line {
+  font-size: 1rem;
+  line-height: 2rem;
+
+  dt,
+  dd {
+    display: inline-block;
+  }
+
+  dt {
+    font-weight: 600;
+    margin-right: 1ch;
+    white-space: nowrap;
+  }
+
+  dd {
+    span + span {
+      &::before {
+        content: ',';
+        margin-right: 1ch;
+      }
+    }
+  }
+}
+
+.bottom {
+  margin-top: 4.25rem;
+
+  dd {
+    margin-left: -0.3125rem;
+    margin-right: -0.3125rem;
+  }
+}
+
+.tag {
+  display: inline-block;
+  min-width: 6rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-decoration: none;
+  margin: 0.3125rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--element-bg);
+  border-radius: 2px;
+  box-shadow: 0px 0px 4px 1px var(--card-shadow);
+
+  @include mixins.respond(sm) {
+    min-width: 5rem;
+  }
+
+  &,
+  &:link,
+  &:visited {
+    color: var(--text-color);
+  }
+
+  &:hover,
+  &:active {
+    color: var(--active-color);
+  }
+}

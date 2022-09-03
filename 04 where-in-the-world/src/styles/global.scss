@@ -1,0 +1,136 @@
+@use './mixins.scss' as mixins;
+@import '../../node_modules/normalize.css/normalize.css';
+
+html,
+html[data-theme='light'] {
+  --background-color: #fafafa;
+  --text-color: #111517;
+  --card-shadow: rgba(0, 0, 0, 0.03);
+  --element-bg: #ffffff;
+  --toggle-stroke: #111517;
+  --scroll-thumb: #b5b3b3;
+  --scroll-thumb-hover: #838282;
+  --active-color: #0096ff;
+
+  --toggle-bg: #ffffff;
+  --page-padding: 5rem;
+
+  @include mixins.respond(md) {
+    --page-padding: 3rem;
+  }
+
+  @include mixins.respond(sm) {
+    --page-padding: 2rem;
+  }
+
+  @include mixins.respond(xs) {
+    --page-padding: 1.25rem;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    --background-color: #fafafa;
+    --text-color: #111517;
+    --card-shadow: rgba(0, 0, 0, 0.03);
+    --element-bg: #ffffff;
+    --toggle-stroke: #111517;
+    --scroll-thumb: #b5b3b3;
+    --scroll-thumb-hover: #838282;
+  }
+}
+
+html[data-theme='dark'] {
+  --background-color: #202c36;
+  --text-color: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.03);
+  --element-bg: #2b3844;
+  --toggle-stroke: transparent;
+  --scroll-thumb: #496073;
+  --scroll-thumb-hover: #6b8193;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --background-color: #202c36;
+    --text-color: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.03);
+    --element-bg: #2b3844;
+    --toggle-stroke: transparent;
+    --scroll-thumb: #496073;
+    --scroll-thumb-hover: #6b8193;
+  }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+main {
+  padding: 3rem var(--page-padding);
+
+  @include mixins.respond(sm) {
+    padding: 2.5rem var(--page-padding);
+  }
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    color: var(--text-color);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+}

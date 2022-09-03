@@ -1,0 +1,40 @@
+@use './mixins.scss' as mixins;
+
+.cards {
+  --gap: 4.625rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(-1 * var(--gap) / 2);
+  margin-right: calc(-1 * var(--gap) / 2);
+  margin-top: calc(-1 * var(--gap) / 2);
+  list-style: none;
+
+  @include mixins.respond(xxl) {
+    --gap: 3.75rem;
+  }
+
+  @include mixins.respond(md) {
+    --gap: 3rem;
+  }
+}
+
+.card_item {
+  padding: calc(var(--gap) / 2);
+  flex-basis: 25%;
+  width: 25%;
+
+  @include mixins.respond(xxl) {
+    flex-basis: 33.3333%;
+    width: 33.3333%;
+  }
+
+  @include mixins.respond(xl) {
+    flex-basis: 50%;
+    width: 50%;
+  }
+
+  @include mixins.respond(sm) {
+    flex-basis: 100%;
+    width: 100%;
+  }
+}

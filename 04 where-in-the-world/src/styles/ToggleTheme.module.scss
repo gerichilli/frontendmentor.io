@@ -1,0 +1,37 @@
+@use './mixins.scss' as mixins;
+
+.toggle {
+  background-color: transparent;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.375;
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+  @include mixins.respond(md) {
+    font-size: 0.875rem;
+  }
+
+  svg path {
+    fill: var(--toggle-bg);
+    stroke: var(--toggle-stroke);
+  }
+
+  span {
+    margin-left: 0.5rem;
+
+    @include mixins.respond(md) {
+      margin-left: 0.25rem;
+    }
+  }
+
+  &:hover {
+    color: var(--active-color);
+  }
+}

@@ -1,0 +1,16 @@
+@use './mixins.scss' as mixins;
+
+.footer {
+  text-align: center;
+  padding: 1rem var(--page-padding);
+  font-size: 0.875rem;
+  margin-top: auto;
+
+  @include mixins.respond(sm) {
+    font-size: 0.75rem;
+  }
+
+  a {
+    color: var(--text-color);
+  }
+}
