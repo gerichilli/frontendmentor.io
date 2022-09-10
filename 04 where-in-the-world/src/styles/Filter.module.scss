@@ -1,0 +1,70 @@
+@use './mixins.scss' as mixins;
+
+.filter {
+  position: relative;
+  min-width: 12.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-left: 1.5rem;
+
+  @include mixins.respond(sm) {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.filter_button,
+.dropdown {
+  width: 100%;
+  background-color: var(--element-bg);
+  color: var(--text-color);
+  padding-left: 1.5rem;
+  padding-right: 1.125rem;
+  border-radius: 5px;
+  box-shadow: 0px 2px 9px var(--input-shadow);
+  cursor: pointer;
+}
+
+.filter_button {
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+  border: none;
+
+  svg {
+    margin-left: auto;
+  }
+
+  svg path {
+    fill: currentColor;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 1;
+  margin-top: 0.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  list-style: none;
+
+  & > li {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+
+    a {
+      display: block;
+      text-decoration: none;
+
+      &:link,
+      &:visited {
+        color: var(--text-color);
+      }
+
+      &:hover,
+      &:active {
+        color: var(--active-color);
+      }
+    }
+  }
+}

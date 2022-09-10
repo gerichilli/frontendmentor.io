@@ -12,6 +12,8 @@ html[data-theme='light'] {
   --scroll-thumb-hover: #838282;
   --active-color: #0096ff;
 
+  --input-shadow: rgba(0, 0, 0, 0.05325);
+
   --toggle-bg: #ffffff;
   --page-padding: 5rem;
 
@@ -91,6 +93,16 @@ main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.top-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  @include mixins.respond(sm) {
+    flex-direction: column;
+  }
 }
 
 .sr-only {

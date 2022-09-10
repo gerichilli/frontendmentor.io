@@ -16,9 +16,11 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
+    "flexsearch": "^0.7.21",
     "gatsby": "^4.21.1",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^2.22.0",
+    "gatsby-plugin-local-search": "^2.0.1",
     "gatsby-plugin-sass": "^5.22.0",
     "gatsby-plugin-sharp": "^4.22.0",
     "gatsby-source-filesystem": "^4.22.0",
@@ -27,6 +29,7 @@
     "normalize.css": "^8.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-use-flexsearch": "^0.1.1",
     "sass": "^1.54.8",
     "slugify": "^1.6.5"
   }

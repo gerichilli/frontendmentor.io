@@ -96,8 +96,14 @@ resolve: `gatsby-source-graphql`,
 
 ### 7. Styling error status and make the pages responsive
 
-### 6. Infinite scrolling
+### 8. Infinite scrolling
 
 - [Reference](https://www.erichowey.dev/writing/load-more-button-and-infinite-scroll-in-gatsby/)
 
-### 7. Imply filter and searching
+### 9. Imply searching
+
+- [Add Search](https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-search/)
+- [Reference](https://www.emgoto.com/gatsby-search/)
+- [Document](https://www.gatsbyjs.com/plugins/gatsby-plugin-local-search)
+- Install `gatsby-plugin-local-search`
+- Install `flexsearch react-use-flexsearch`

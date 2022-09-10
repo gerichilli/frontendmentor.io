@@ -15,26 +15,19 @@ export const query = graphql`
     region(id: { eq: $id }) {
       name
       countries {
-        flags {
-          svg
-        }
+        id
+        slug
         name {
           common
         }
-        nativeName
+        flags {
+          svg
+        }
         population
-        capital
         region {
           name
         }
-        subregion
-        tld
-        mainCurrencies
-        mainLanguages
-        borderCountries {
-          name
-          slug
-        }
+        capital
       }
     }
   }

@@ -7,7 +7,6 @@
 
   @include mixins.respond(xxl) {
     flex-direction: column;
-    align-items: center;
   }
 
   @include mixins.respond(md) {
@@ -42,11 +41,13 @@
   overflow: hidden;
   flex-grow: 1;
   flex-basis: 43.75%;
+  width: 43.75%;
   max-width: 37.5rem;
   position: relative;
   border-radius: 10px;
 
   @include mixins.respond(xxl) {
+    align-self: center;
     max-width: 32rem;
     width: 100%;
     margin-bottom: 5rem;
@@ -87,29 +88,27 @@
 
 .info {
   flex-basis: 56.25%;
+  width: 56.25%;
   padding-left: 7.5rem;
 
   @include mixins.respond(xxl) {
     padding-left: 0;
+    width: 100%;
   }
 }
 
 .info_row {
   display: flex;
 
+  dl {
+    flex-basis: 50%;
+  }
+
   & > * + * {
-    margin-left: 7.5rem;
-
-    @include mixins.respond(xxl) {
-      margin-left: 5rem;
-    }
-
-    @include mixins.respond(xl) {
-      margin-left: 3rem;
-    }
+    padding-left: 2rem;
 
     @include mixins.respond(sm) {
-      margin-left: 0;
+      padding-left: 0;
     }
   }
 
@@ -134,8 +133,10 @@
   }
 
   dd {
-    span + span {
-      &::before {
+    span {
+      display: inline-block;
+
+      &:not(:last-child):after {
         content: ',';
         margin-right: 1ch;
       }

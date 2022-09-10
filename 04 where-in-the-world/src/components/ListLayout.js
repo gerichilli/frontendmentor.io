@@ -3,11 +3,15 @@ import Search from './Search';
 import CountryList from './CountryList';
 import Layout from './Layout';
 import '../styles/global.scss';
+import Filter from './Filter';
 
 function ListLayout({ countries }) {
   return (
     <Layout>
-      <Search />
+      <section className="top-container">
+        <Search />
+        <Filter />
+      </section>
       {countries && countries.length > 0 ? (
         <CountryList countries={countries} />
       ) : (
