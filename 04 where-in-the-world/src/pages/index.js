@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { useFlexSearch } from 'react-use-flexsearch';
 import ListLayout from '../components/ListLayout';
 import useUnFlattenResults from '../hooks/useUnFlattenResults';
+import Seo from '../components/Seo';
 
 function IndexPage() {
   const [query, setQuery] = useState('');
@@ -44,12 +45,10 @@ function IndexPage() {
 
 export default IndexPage;
 
-export const Head = () => (
-  <>
-    <title>Where In The World</title>
-    <meta
-      name="description"
-      content="View and search for all the countries in the world"
-    />
-  </>
+export const Head = ({ location }) => (
+  <Seo
+    title="Where In The World"
+    description="View and search for all the countries in the world"
+    slug={location.pathname}
+  />
 );

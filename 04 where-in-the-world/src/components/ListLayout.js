@@ -8,7 +8,11 @@ import Filter from './Filter';
 function ListLayout({ countries, query, setQuery }) {
   return (
     <Layout>
+      <h1 className="sr-only">Find all countries in the world</h1>
       <section className="top-container">
+        <h2 className="sr-only">
+          Search for a country by name, capital, region
+        </h2>
         <Search query={query} setQuery={setQuery} />
         <Filter setQuery={setQuery} />
       </section>

@@ -3,7 +3,7 @@ module.exports = {
     title: `Where in the world`,
     image: `${__dirname}/src/images/logo.png`,
     description: `View and search for all the countries in the world`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://fem-where-in-the-world.netlify.app`,
   },
   plugins: [
     {
@@ -18,6 +18,25 @@ module.exports = {
       options: {
         fonts: [`nunito sans\:400,600,700,800`],
         display: 'swap',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Where In The World`,
+        short_name: `WITW`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#0096ff`,
+        display: `standalone`,
+        icon: `${__dirname}/src/images/logo.png`,
+        theme_color_in_head: false,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en',
       },
     },
     {

@@ -26,6 +26,9 @@
 - [gatsby-plugin-sharp](https://www.gatsbyjs.com/plugins/gatsby-plugin-sharp/)
 - [gatsby-transformer-sharp](https://www.gatsbyjs.com/docs/conceptual/image-plugin-architecture/#gatsby-transformer-sharp): This plugin attaches a childImageSharp node to all image File nodes
 - [gatsby-plugin-google-fonts](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-fonts/)
+- [gatsby-plugin-html-attributes](https://www.gatsbyjs.com/plugins/gatsby-plugin-html-attributes/)
+- [gatsby-plugin-manifest](https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/)
+- [gatsby-plugin-local-search](https://www.gatsbyjs.com/plugins/gatsby-plugin-local-search/)
 - Add all plugins to `gatsby-config.js`
 
 ### 3. Create some components

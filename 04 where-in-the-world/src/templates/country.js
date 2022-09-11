@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import * as styles from '../styles/CountryPage.module.scss';
+import Seo from '../components/Seo';
 
 function CountryPage({ data }) {
   const countryData = data?.country;
@@ -160,12 +161,11 @@ export const Head = ({
   data: {
     country: { name },
   },
+  location,
 }) => (
-  <>
-    <title>{name.common}</title>
-    <meta
-      name="description"
-      content={`View the details of ${name.common}: population, currencies, capital, languages, etc.`}
-    />
-  </>
+  <Seo
+    title={`${name.common} - Population, Capital, Languages and more`}
+    description={`View the details of ${name.common}: population, currencies, capital, languages, etc.`}
+    slug={location.pathname}
+  />
 );

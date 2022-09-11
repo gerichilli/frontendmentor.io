@@ -30,7 +30,7 @@ This is where I store the solutions for Frontend Mentor Challenges
 
 ## Level 4: Advanced Challenges
 
-| Challenges name                                                                                                                          |    Related tags     |                                          Preview Link |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | :-----------------: | ----------------------------------------------------: |
-| **[04 Devjobs web app](https://github.com/gerichilli/frontendmentor.io/tree/main/04%20devjobs-web-app)**                                 | REACT, Tailwind CSS |     _[Link](https://github-jobs-filter.netlify.app/)_ |
-| **[04 REST Countries API with color theme switcher](https://github.com/gerichilli/frontendmentor.io/tree/main/04%20where-in-the-world)** | REACT, Tailwind CSS | _[Link](https://fem-where-in-the-world.netlify.app/)_ |
+| Challenges name                                                                                                                          |           Related tags           |                                          Preview Link |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------: | ----------------------------------------------------: |
+| **[04 Devjobs web app](https://github.com/gerichilli/frontendmentor.io/tree/main/04%20devjobs-web-app)**                                 |       REACT, Tailwind CSS        |     _[Link](https://github-jobs-filter.netlify.app/)_ |
+| **[04 REST Countries API with color theme switcher](https://github.com/gerichilli/frontendmentor.io/tree/main/04%20where-in-the-world)** | REACT, GATSBY, SCSS, CSS-Modules | _[Link](https://fem-where-in-the-world.netlify.app/)_ |

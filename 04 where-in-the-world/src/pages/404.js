@@ -19,4 +19,9 @@ function NotFoundPage() {
 
 export default NotFoundPage;
 
-export const Head = () => <title>Page Not found</title>;
+export const Head = () => (
+  <>
+    <title>Page Not Found</title>
+    <meta name="description" content="Page not found" />
+  </>
+);
