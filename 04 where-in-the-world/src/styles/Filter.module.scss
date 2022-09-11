@@ -52,14 +52,10 @@
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
 
-    a {
+    label {
       display: block;
       text-decoration: none;
-
-      &:link,
-      &:visited {
-        color: var(--text-color);
-      }
+      cursor: pointer;
 
       &:hover,
       &:active {

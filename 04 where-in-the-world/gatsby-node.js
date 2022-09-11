@@ -2,13 +2,34 @@ const slugify = require('slugify');
 const fetch = require('node-fetch');
 const { createRemoteFileNode } = require('gatsby-source-filesystem');
 
+exports.createSchemaCustomization = async ({ actions }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+    type Country implements Node {
+        region: Region! @link(by: "name" from: "region")
+    }
+
+    type Region implements Node {
+        countries: [Country!]! @link(by: "region.name" from: "name")
+    }    
+
+    type borderCountry implements Node {
+        name: String
+        slug: String
+    }
+  `;
+
+  createTypes(typeDefs);
+};
+
 exports.sourceNodes = async ({
   actions,
   createNodeId,
   createContentDigest,
   reporter,
 }) => {
-  const { createNode, createTypes } = actions;
+  const { createNode } = actions;
 
   const result = await fetch('https://restcountries.com/v3.1/all');
   const resultData = await result.json();
@@ -17,21 +38,6 @@ exports.sourceNodes = async ({
     reporter.panic('error loading content');
     return;
   }
-
-  createTypes(`
-        type Country implements Node {
-            region: Region! @link(by: "name" from: "region")
-        }
-
-        type Region implements Node {
-            countries: [Country!]! @link(by: "region.name" from: "name")
-        }    
-
-        type borderCountry implements Node {
-            name: String
-            slug: String
-        }
-    `);
 
   resultData.forEach((country) => {
     createNode({
@@ -50,7 +56,6 @@ exports.sourceNodes = async ({
     createNode({
       name: country.region,
       id: createNodeId(`region-${country.region}`),
-      slug: slugify(country.region, { lower: true }),
       parent: null,
       children: [],
       internal: {
@@ -73,12 +78,6 @@ exports.createPages = async ({ actions, graphql }) => {
           slug
         }
       }
-      allRegion {
-        nodes {
-          id
-          slug
-        }
-      }
     }
   `);
 
@@ -96,21 +95,6 @@ exports.createPages = async ({ actions, graphql }) => {
       context: {
         id: country.id,
         slug: country.slug,
-      },
-    });
-  });
-
-  const allRegion = result.data.allRegion.nodes;
-
-  allRegion.forEach((region) => {
-    createPage({
-      path: `/region/${region.slug}`,
-      component: require.resolve(
-        `${__dirname}/src/templates/regionCountries.js`,
-      ),
-      context: {
-        id: region.id,
-        slug: region.slug,
       },
     });
   });
@@ -150,8 +134,9 @@ exports.createResolvers = ({
         resolve: (source) => {
           // Get just one native name
           const nativeNameObj = source.name.nativeName;
+          if (!nativeNameObj) return null;
           const nativeNameLangKey = Object.keys(nativeNameObj)[0];
-          if (nativeNameLangKey) {
+          if (nativeNameLangKey.length > 0) {
             return nativeNameObj[nativeNameLangKey].common;
           } else {
             return null;
@@ -163,6 +148,7 @@ exports.createResolvers = ({
         resolve: (source) => {
           // Turn currencies to array of strings
           const currenciesObj = source.currencies;
+          if (!currenciesObj) return null;
           const currenciesKeys = Object.keys(currenciesObj);
           if (currenciesKeys.length > 0) {
             return currenciesKeys.map((key) => currenciesObj[key].name);
@@ -176,6 +162,7 @@ exports.createResolvers = ({
         resolve: (source) => {
           // Turn languages to array of strings
           const languagesObj = source.languages;
+          if (!languagesObj) return null;
           const languagesObjKeys = Object.keys(languagesObj);
           if (languagesObjKeys.length > 0) {
             return languagesObjKeys.map((key) => languagesObj[key]);

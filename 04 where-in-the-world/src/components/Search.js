@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as styles from '../styles/Search.module.scss';
-import { graphql, useStaticQuery } from 'gatsby';
 
-function Search() {
+function Search({ query, setQuery }) {
   return (
-    <form className={styles.search}>
+    <form className={styles.search} onSubmit={(e) => e.preventDefault()}>
       <svg
         width="18"
         height="18"
@@ -24,10 +23,12 @@ function Search() {
         Search for a country
       </label>
       <input
-        type="text"
+        type="search"
         id="search-text"
         className={styles.input}
         placeholder="Search for a country…"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
       />
     </form>
   );

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import * as styles from '../styles/Filter.module.scss';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
-function Filter() {
+function Filter({ setQuery }) {
   const data = useStaticQuery(graphql`
     query GetAllRegions {
       allRegion {
         nodes {
           id
-          slug
           name
         }
       }
@@ -18,14 +17,27 @@ function Filter() {
   const regions = data?.allRegion?.nodes;
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [buttonLabel, setButtonLabel] = useState('Filter by Region');
 
   function toggleDropdown() {
     setIsDropdownOpen((isDropdownOpen) => !isDropdownOpen);
   }
+
+  function handleFilter(e) {
+    setQuery(e.target.value);
+    setIsDropdownOpen(false);
+
+    if (e.target.value === '') {
+      setButtonLabel('Filter by Region');
+    } else {
+      setButtonLabel(e.target.value);
+    }
+  }
+
   return (
     <div className={styles.filter}>
       <button className={styles.filter_button} onClick={toggleDropdown}>
-        <span className="filter__label">Filter by Region</span>
+        <span className="filter__label">{buttonLabel}</span>
         <svg
           width="10"
           height="7"
@@ -46,9 +58,30 @@ function Filter() {
       </button>
       {isDropdownOpen && (
         <ul className={styles.dropdown}>
+          <li key="all">
+            <label>
+              <input
+                type="radio"
+                name="region"
+                value=""
+                onChange={handleFilter}
+                className="sr-only"
+              />
+              <span>All</span>
+            </label>
+          </li>
           {regions.map((region) => (
             <li key={region.id}>
-              <Link to={`/region/${region.slug}`}>{region.name}</Link>
+              <label>
+                <input
+                  type="radio"
+                  name="region"
+                  value={region.name}
+                  onChange={handleFilter}
+                  className="sr-only"
+                />
+                <span>{region.name}</span>
+              </label>
             </li>
           ))}
         </ul>

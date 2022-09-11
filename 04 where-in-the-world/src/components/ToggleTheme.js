@@ -5,8 +5,10 @@ import useLocalStorage from '../hooks/useLocalStorage';
 function ToggleTheme() {
   let initialTheme = 'light';
 
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    initialTheme = 'dark';
+  if (typeof window !== 'undefined') {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      initialTheme = 'dark';
+    }
   }
 
   const [theme, setTheme] = useLocalStorage(initialTheme, 'theme');

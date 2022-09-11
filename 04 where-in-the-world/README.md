@@ -72,7 +72,7 @@ resolve: `gatsby-source-graphql`,
 
 - install data
 - source data
-- create types
+- create types - using `createSchemaCustomization` API (`createTypes` in `sourceNodes` is deprecated)
 - create node by the fetched data
   - Country
   - Region
@@ -92,18 +92,18 @@ resolve: `gatsby-source-graphql`,
   - template: `/src/templates/country.js`
   - path: `/country/country.slug`
 
-### 6. Create page for each filter
-
-### 7. Styling error status and make the pages responsive
+### 7. Styling error status
 
 ### 8. Infinite scrolling
 
 - [Reference](https://www.erichowey.dev/writing/load-more-button-and-infinite-scroll-in-gatsby/)
 
-### 9. Imply searching
+### 9. Imply searching and filtering
 
 - [Add Search](https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-search/)
 - [Reference](https://www.emgoto.com/gatsby-search/)
 - [Document](https://www.gatsbyjs.com/plugins/gatsby-plugin-local-search)
 - Install `gatsby-plugin-local-search`
 - Install `flexsearch react-use-flexsearch`
+- Config gatsby-plugin-local-search in `gatsby-config.js`
+- Using `useFlexSearch` in index.js

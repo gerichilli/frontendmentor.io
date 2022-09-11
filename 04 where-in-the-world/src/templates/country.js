@@ -15,9 +15,9 @@ function CountryPage({ data }) {
     region,
     subregion,
     tld,
-    mainCurrencies,
-    mainLanguages,
-    borderCountries,
+    mainCurrencies = null,
+    mainLanguages = null,
+    borderCountries = null,
   } = countryData;
 
   return (
@@ -67,13 +67,13 @@ function CountryPage({ data }) {
                   </div>
                   <div className={styles.line}>
                     <dt>Capital:</dt>
-                    <dd>{capital[0]}</dd>
+                    <dd>{capital ? capital[0] : 'none'}</dd>
                   </div>
                 </dl>
                 <dl>
                   <div className={styles.line}>
                     <dt>Top Level Domain:</dt>
-                    <dd>{tld}</dd>
+                    <dd>{tld || 'none'}</dd>
                   </div>
                   <div className={styles.line}>
                     <dt>Currencies:</dt>

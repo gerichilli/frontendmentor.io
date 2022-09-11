@@ -6,7 +6,7 @@ import ToggleTheme from './ToggleTheme';
 function Header() {
   return (
     <header className={styles.header}>
-      <a href="#main" className="sr-only">
+      <a href="#main" className="sr-only sr-only--focus-show">
         Skip to main
       </a>
       <Link to="/" className={styles.logo}>

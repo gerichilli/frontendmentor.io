@@ -1,15 +1,21 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import Layout from '../components/Layout';
+import { StaticImage } from 'gatsby-plugin-image';
 
-const NotFoundPage = () => {
+function NotFoundPage() {
   return (
     <Layout>
-      <p>Page not found</p>
-      <Link to="/">Go home</Link>
+      <div className="error-wrapper">
+        <p className="error-message">Page not found</p>
+        <StaticImage src="../images/404.png" alt="" />
+        <Link to="/" className="error-button">
+          Go home
+        </Link>
+      </div>
     </Layout>
   );
-};
+}
 
 export default NotFoundPage;
 

@@ -116,16 +116,59 @@ main {
   white-space: nowrap;
   border-width: 0;
 
-  &:focus {
-    position: static;
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
+  &--focus-show {
+    &:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: 0;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+      color: var(--text-color);
+    }
+  }
+}
+
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem var(--page-padding);
+
+  div[data-gatsby-image-wrapper] {
+    max-width: 400px;
+  }
+
+  & > * + * {
+    margin-top: 2rem;
+  }
+}
+
+.error-message {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.error-button {
+  font-weight: 700;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  background-color: var(--element-bg);
+  border-radius: 5px;
+  text-decoration: none;
+
+  &:link,
+  &:visited {
     color: var(--text-color);
+  }
+
+  &:hover,
+  &:active {
+    color: var(--active-color);
   }
 }
 

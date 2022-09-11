@@ -1,8 +1,12 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { useFlexSearch } from 'react-use-flexsearch';
 import ListLayout from '../components/ListLayout';
+import useUnFlattenResults from '../hooks/useUnFlattenResults';
 
-const IndexPage = () => {
+function IndexPage() {
+  const [query, setQuery] = useState('');
+
   const data = useStaticQuery(graphql`
     query GetAllCountries {
       allCountry {
@@ -22,13 +26,21 @@ const IndexPage = () => {
           capital
         }
       }
+      localSearchPages {
+        index
+        store
+      }
     }
   `);
 
-  const countries = data?.allCountry?.nodes;
+  const index = data?.localSearchPages?.index;
+  const store = data?.localSearchPages?.store;
+  const results = useFlexSearch(query, index, store);
+  const queryCountries = useUnFlattenResults(results);
+  const countries = query ? queryCountries : data?.allCountry?.nodes;
 
-  return <ListLayout countries={countries} />;
-};
+  return <ListLayout countries={countries} query={query} setQuery={setQuery} />;
+}
 
 export default IndexPage;
 
