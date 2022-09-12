@@ -1,0 +1,70 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  font: inherit;
+  font-weight: 700;
+  color: var(--contrast);
+  white-space: nowrap;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow) var(--element-shadow);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bg-o {
+  background-color: var(--side-o);
+}
+
+.bg-o:hover {
+  background-color: var(--side-o-hover);
+}
+
+.bg-x {
+  background-color: var(--side-x);
+}
+
+.bg-x:hover {
+  background-color: var(--side-x-hover);
+}
+
+.bg-secondary {
+  background-color: var(--contrast-medium);
+}
+
+.bg-secondary:hover {
+  background-color: var(--contrast-light);
+}
+
+.md {
+  height: 52px;
+  padding: 0.875rem 1rem 1.125rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  letter-spacing: 1px;
+}
+
+.bg-secondary.md {
+  box-shadow: var(--shadow) var(--contrast-darker);
+}
+
+.xl {
+  width: 100%;
+  max-width: 460px;
+  height: 67px;
+  padding: 1.0625rem 1rem 1.5625rem;
+  font-size: 1.25rem;
+  line-height: 1.5625rem;
+  letter-spacing: 1.25px;
+}
+
+.bg-o.xl {
+  box-shadow: var(--shadow-xl) var(--side-o-shadow);
+}
+
+.bg-x.xl {
+  box-shadow: var(--shadow-xl) var(--side-x-shadow);
+}

@@ -1,0 +1,81 @@
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.top > * + * {
+  margin-left: 0.625rem;
+}
+
+.onTurn {
+  min-width: 140px;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  letter-spacing: 1px;
+  color: var(--contrast-medium);
+  padding: 0.8125rem 1.875rem 1.1875rem;
+  background: #1f3641;
+  box-shadow: var(--shadow) var(--element-shadow);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.onTurn svg {
+  margin-right: 0.75rem;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1.25rem;
+  row-gap: 1.25rem;
+}
+
+.summary {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1.25rem;
+}
+
+.sum_px,
+.sum_ties,
+.sum_po {
+  text-align: center;
+  border-radius: 15px;
+  padding: 0.75rem;
+}
+
+.sum_px p:first-child,
+.sum_ties p:first-child,
+.sum_po p:first-child {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  letter-spacing: 0.75px;
+}
+
+.sum_px p:last-child,
+.sum_ties p:last-child,
+.sum_po p:last-child {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  letter-spacing: 1.5px;
+}
+
+.sum_px {
+  background-color: var(--side-x);
+}
+
+.sum_po {
+  background-color: var(--side-o);
+}
+
+.sum_ties {
+  background-color: var(--contrast-medium);
+}

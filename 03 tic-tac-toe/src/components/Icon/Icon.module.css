@@ -1,0 +1,49 @@
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon[class*='fill'] path {
+  fill: currentColor;
+}
+
+.fill path {
+  color: var(--contrast-medium);
+}
+
+.fill-dark path {
+  color: var(--contrast);
+}
+
+.x-fill path {
+  color: var(--side-x);
+}
+
+.o-fill path {
+  color: var(--side-o);
+}
+
+.x-outline {
+  stroke: var(--side-x);
+  stroke-width: 1;
+}
+
+.o-outline {
+  stroke: var(--side-o);
+  stroke-width: 1;
+}
+
+.sm {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.md {
+  width: 2rem;
+  height: 2rem;
+}
+
+.xl {
+  width: 4rem;
+  height: 4rem;
+}
