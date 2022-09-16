@@ -1,0 +1,70 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.dialog {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  background-color: var(--element-bg);
+  padding: 2.8125rem 1.25rem;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.winner {
+  margin-bottom: 1rem;
+  color: var(--contrast-medium);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  line-height: 1.25rem;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  font-size: 2.5rem;
+  line-height: 3.125rem;
+  letter-spacing: 2.5px;
+  margin-bottom: 1.5rem;
+  color: var(--contrast-medium);
+}
+
+.result-o {
+  color: var(--side-o);
+}
+
+.result-x {
+  color: var(--side-x);
+}
+
+.result svg {
+  margin-right: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons > * + * {
+  margin-left: 1rem;
+}

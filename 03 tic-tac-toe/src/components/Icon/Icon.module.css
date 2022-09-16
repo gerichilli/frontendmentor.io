@@ -23,6 +23,11 @@
   color: var(--side-o);
 }
 
+.outline path {
+  stroke: var(--contrast);
+  stroke-width: 1;
+}
+
 .x-outline {
   stroke: var(--side-x);
   stroke-width: 1;

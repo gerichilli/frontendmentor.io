@@ -39,6 +39,7 @@ Icon.propTypes = {
     'o-fill',
     'o-outline',
     'x-outline',
+    'outline',
   ]),
   size: PropTypes.oneOf(['sm', 'md', 'xl']),
 };

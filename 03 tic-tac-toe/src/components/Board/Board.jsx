@@ -5,23 +5,23 @@ import styles from './Board.module.css';
 import Button from '../Button';
 import Icon from '../Icon';
 import Square from '../Square';
-import Modal from '../Modal';
+import ModalWrapper from '../Modal';
 
 const GOFIRST = 'x';
-const initialBoard = Array(9).fill(null);
+const initialSquare = Array(9).fill(null);
 const initialScore = { x: 0, o: 0, tie: 0 };
 
 function Board({ withPC, selectedMark, setIsGameStart }) {
   const [isPCTurn, setIsPCTurn] = useState(withPC && selectedMark !== GOFIRST);
   const [mark, setMark] = useState(GOFIRST); // Active player's mark
-  const [squares, setSquares] = useState(initialBoard); // Board data
+  const [squares, setSquares] = useState(initialSquare); // Board data
   const [score, setScore] = useState(initialScore); // Score
   const [winner, setWinner] = useState(null); // Winner
 
   function handleRestart() {
     setIsGameStart(false);
     setMark(GOFIRST);
-    setSquares(initialBoard);
+    setSquares(initialSquare);
     setScore(initialScore);
   }
 
@@ -30,33 +30,47 @@ function Board({ withPC, selectedMark, setIsGameStart }) {
     const newSquares = [...squares];
     newSquares[index] = mark;
     setSquares(newSquares);
-    calculateNextMark();
-    withPC && setIsPCTurn(true); // Switch to PC's turn
-  }
-
-  function calculateNextMark() {
-    setMark(() => (mark === 'x' ? 'o' : 'x'));
-  }
-
-  function calculateNextStep() {
-    if (isPCTurn) {
-      // Get array of empty squares's index
-      const emptySquares = squares
-        .map((s, i) => (s === null ? i : null))
-        .filter((s) => s !== null);
-      // Get random index from empty squares
-      const randomNumber = Math.floor(Math.random() * emptySquares.length);
-      const nextStep = emptySquares[randomNumber];
-      // Fill random square
-      handleSquareClick(nextStep);
-      // Set isPCTurn to false => Switch to player's turn
-      setIsPCTurn(false);
-    }
+    setMark(calculateNextMark());
+    withPC && setIsPCTurn((prevIsPCTurn) => !prevIsPCTurn); // switch player
   }
 
   useEffect(() => {
-    calculateNextStep();
-  }, [isPCTurn]);
+    if (isPCTurn) {
+      const nextStep = calculateNextStep();
+      // Fill random square
+      handleSquareClick(nextStep);
+    }
+  }, [isPCTurn]); //eslint-disable-line
+
+  useEffect(() => {
+    const win = calculateWinner();
+    if (win) {
+      setWinner(win);
+      setScore((prevScore) => ({
+        ...prevScore,
+        [win]: prevScore[win] + 1,
+      }));
+    } else if (!squares.includes(null)) {
+      setWinner('tie');
+      setScore((prevScore) => ({
+        ...prevScore,
+        tie: prevScore.tie + 1,
+      }));
+    }
+  }, [squares]); //eslint-disable-line
+
+  function calculateNextMark() {
+    return mark === 'x' ? 'o' : 'x';
+  }
+
+  function calculateNextStep() {
+    const emptySquares = squares
+      .map((s, i) => (s === null ? i : null))
+      .filter((s) => s !== null);
+    // Get random index from empty squares
+    const randomNumber = Math.floor(Math.random() * emptySquares.length);
+    return emptySquares[randomNumber];
+  }
 
   function calculateWinner() {
     const winningLines = [
@@ -78,10 +92,10 @@ function Board({ withPC, selectedMark, setIsGameStart }) {
         squares[a] === squares[c]
       ) {
         return squares[a];
-      } else {
-        return null;
       }
     }
+
+    return null;
   }
 
   return (
@@ -91,8 +105,16 @@ function Board({ withPC, selectedMark, setIsGameStart }) {
         <div className={styles.onTurn}>
           <Icon icon={mark} size="sm" variant="fill" aria-label={mark} /> turn
         </div>
+        <Button variant="bg-secondary" size="md" onClick={handleRestart}>
+          <Icon icon="home" size="sm" variant="fill-dark" aria-label="home" />
+        </Button>
         <Button variant="bg-secondary" size="md">
-          Redo
+          <Icon
+            icon="undo"
+            size="sm"
+            variant="fill-dark"
+            aria-label="restart"
+          />
         </Button>
         <Button variant="bg-secondary" size="md" onClick={handleRestart}>
           <Icon
@@ -127,7 +149,7 @@ function Board({ withPC, selectedMark, setIsGameStart }) {
           <p>{score.o}</p>
         </div>
       </div>
-      <Modal />
+      <ModalWrapper />
     </div>
   );
 }

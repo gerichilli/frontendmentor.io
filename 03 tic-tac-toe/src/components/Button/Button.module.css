@@ -47,6 +47,10 @@
   letter-spacing: 1px;
 }
 
+.bg-o.md {
+  box-shadow: var(--shadow) var(--side-o-shadow);
+}
+
 .bg-secondary.md {
   box-shadow: var(--shadow) var(--contrast-darker);
 }
