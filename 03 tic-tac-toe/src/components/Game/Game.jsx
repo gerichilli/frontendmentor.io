@@ -6,7 +6,7 @@ import styles from './Game.module.css';
 function Game() {
   const [gameStart, setGameStart] = useState(false);
   const [autoPlay, setAutoPlay] = useState(false); // true: play with PC
-  const [userChoice, setUserChoice] = useState('o'); // 'x' or 'o'
+  const [userChoice, setUserChoice] = useState('x'); // 'x' or 'o'
 
   return (
     <main className={styles.game}>
