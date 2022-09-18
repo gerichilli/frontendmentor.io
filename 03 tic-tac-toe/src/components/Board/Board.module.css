@@ -5,7 +5,17 @@
   margin-bottom: 1.25rem;
 }
 
-.top > * + * {
+.top_left,
+.top_right {
+  display: flex;
+  align-items: center;
+}
+
+.top_left svg {
+  flex-shrink: 0;
+}
+
+.top_right > * + * {
   margin-left: 0.625rem;
 }
 
@@ -21,7 +31,7 @@
   border-radius: 10px;
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  margin-left: 1rem;
 }
 
 .onTurn svg {
@@ -42,26 +52,20 @@
   column-gap: 1.25rem;
 }
 
-.sum_px,
-.sum_ties,
-.sum_po {
+:is(.sum_px, .sum_ties, .sum_po) {
   text-align: center;
   border-radius: 15px;
   padding: 0.75rem;
 }
 
-.sum_px p:first-child,
-.sum_ties p:first-child,
-.sum_po p:first-child {
+:is(.sum_px, .sum_ties, .sum_po) p:first-child {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.125rem;
   letter-spacing: 0.75px;
 }
 
-.sum_px p:last-child,
-.sum_ties p:last-child,
-.sum_po p:last-child {
+:is(.sum_px, .sum_ties, .sum_po) p:last-child {
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.875rem;
@@ -78,4 +82,35 @@
 
 .sum_ties {
   background-color: var(--contrast-medium);
+}
+
+@media screen and (max-width: 600px) {
+  .top {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .top_left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .top_right {
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  :is(.sum_px, .sum_ties, .sum_po) {
+    border-radius: 10px;
+  }
+
+  :is(.sum_px, .sum_ties, .sum_po) p:first-child {
+    font-size: 0.75rem;
+  }
+
+  :is(.sum_px, .sum_ties, .sum_po) p:last-child {
+    font-size: 1.25rem;
+    line-height: 1.5625rem;
+  }
 }

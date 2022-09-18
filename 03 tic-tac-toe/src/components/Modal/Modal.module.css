@@ -22,6 +22,7 @@
   top: 50%;
   left: 0;
   width: 100%;
+  min-height: 266px;
   background-color: var(--element-bg);
   padding: 2.8125rem 1.25rem;
   transform: translateY(-50%);
@@ -29,6 +30,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .winner {
@@ -67,4 +69,29 @@
 
 .buttons > * + * {
   margin-left: 1rem;
+}
+
+.x-text {
+  color: var(--side-x);
+}
+
+.o-text {
+  color: var(--side-o);
+}
+
+@media screen and (max-width: 600px) {
+  .winner {
+    font-size: 0.875rem;
+  }
+
+  .result {
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+  }
+
+  .result svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 0.5rem;
+  }
 }

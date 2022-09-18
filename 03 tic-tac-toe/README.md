@@ -1,17 +1,33 @@
 # Tic Tac Toe
 
-## 1. Install some packages
+## 1. Built with
+
+- HTML
+- CSS Modules
+- React
+- PropTypes
+
+## 2. User can
+
+- Choose the mark that they want
+- Choose to play with PC / other player
+- Restart the game
+- Reset the game
+- Undo the current step
+
+## 3. Steps
+
+### Install packages
 
 - prettier
 - prop-types
 
-## 2. Create components
+### Create components and Test components with static data
 
 - Game
-- StartMode
-- Button
-- Icon
+- OpenMode
 - Board
 - Square
-
-## 3. Test components with static data
+- Modal
+- Button
+- Icon

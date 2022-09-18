@@ -14,13 +14,12 @@
   padding-bottom: 100%;
 }
 
-.square span,
-.square svg {
+.square :is(.span, svg) {
   display: block;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, calc(-50% - 4px));
 }
 
 .square span {
@@ -31,4 +30,10 @@
 .square:hover span {
   opacity: 1;
   visibility: visible;
+}
+
+@media screen and (max-width: 600px) {
+  .square {
+    border-radius: 10px;
+  }
 }

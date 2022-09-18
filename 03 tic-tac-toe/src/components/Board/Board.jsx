@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import {
+  getPlayerName,
+  calculateNextMark,
+  calculateNextStep,
+  calculateWinner,
+} from '../../utils/game';
 import Logo from '../../assets/images/logo.svg';
 import styles from './Board.module.css';
 import Button from '../Button';
@@ -7,137 +13,120 @@ import Icon from '../Icon';
 import Square from '../Square';
 import ModalWrapper from '../Modal';
 
-const GOFIRST = 'x';
+const TIME_FOR_PC_THINKING = 1500;
+const GO_FIRST_MARK = 'x';
 const initialSquare = Array(9).fill(null);
 const initialScore = { x: 0, o: 0, tie: 0 };
 
-function Board({ withPC, selectedMark, setIsGameStart }) {
-  const [isPCTurn, setIsPCTurn] = useState(withPC && selectedMark !== GOFIRST);
-  const [mark, setMark] = useState(GOFIRST); // Active player's mark
-  const [squares, setSquares] = useState(initialSquare); // Board data
-  const [score, setScore] = useState(initialScore); // Score
-  const [winner, setWinner] = useState(null); // Winner
+function Board({ setGameStart, autoPlay, userChoice }) {
+  const [squares, setSquares] = useState(initialSquare);
+  const [onTurnMark, setOnTurnMark] = useState(GO_FIRST_MARK); // The mark that on turn
+  const [score, setScore] = useState(initialScore);
+  const [winner, setWinner] = useState(null);
+  const [allowClick, setAllowClick] = useState(true); // For prevent user click when PC is thinking
 
+  // Restart the currently playing game
   function handleRestart() {
-    setIsGameStart(false);
-    setMark(GOFIRST);
     setSquares(initialSquare);
+    setOnTurnMark(GO_FIRST_MARK);
+    setWinner(null);
+    setAllowClick(true);
+  }
+
+  // Reset the game, including score
+  function handleReset() {
+    handleRestart();
+    setGameStart(false);
     setScore(initialScore);
   }
 
   function handleSquareClick(index) {
-    if (squares[index] !== null) return; // if square is already filled, do nothing
+    console.log('click', onTurnMark, 'allowClick', allowClick);
+    // if square is already filled or PC is thinking or there are a winner, do nothing
+    if (squares[index] !== null || !allowClick) return;
+
     const newSquares = [...squares];
-    newSquares[index] = mark;
+    newSquares[index] = onTurnMark;
     setSquares(newSquares);
-    setMark(calculateNextMark());
-    withPC && setIsPCTurn((prevIsPCTurn) => !prevIsPCTurn); // switch player
+    setOnTurnMark(calculateNextMark(onTurnMark));
   }
 
   useEffect(() => {
-    if (isPCTurn) {
-      const nextStep = calculateNextStep();
-      // Fill random square
-      handleSquareClick(nextStep);
+    // If player 2 is PC, calculate next step and auto mark the square
+    if (autoPlay && userChoice !== onTurnMark && !winner) {
+      setAllowClick(false);
+      const pcTimeOut = setTimeout(() => {
+        const nextStep = calculateNextStep(squares);
+        handleSquareClick(nextStep);
+        setAllowClick(true);
+      }, TIME_FOR_PC_THINKING);
+
+      return () => clearTimeout(pcTimeOut);
     }
-  }, [isPCTurn]); //eslint-disable-line
+  }, [onTurnMark, winner]); //eslint-disable-line
 
   useEffect(() => {
-    const win = calculateWinner();
+    const win = calculateWinner(squares);
     if (win) {
       setWinner(win);
       setScore((prevScore) => ({
         ...prevScore,
         [win]: prevScore[win] + 1,
       }));
+      setAllowClick(false);
     } else if (!squares.includes(null)) {
       setWinner('tie');
       setScore((prevScore) => ({
         ...prevScore,
         tie: prevScore.tie + 1,
       }));
+      setAllowClick(false);
     }
   }, [squares]); //eslint-disable-line
-
-  function calculateNextMark() {
-    return mark === 'x' ? 'o' : 'x';
-  }
-
-  function calculateNextStep() {
-    const emptySquares = squares
-      .map((s, i) => (s === null ? i : null))
-      .filter((s) => s !== null);
-    // Get random index from empty squares
-    const randomNumber = Math.floor(Math.random() * emptySquares.length);
-    return emptySquares[randomNumber];
-  }
-
-  function calculateWinner() {
-    const winningLines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-
-    for (let i = 0; i < winningLines.length; i++) {
-      const [a, b, c] = winningLines[i];
-      if (
-        squares[a] &&
-        squares[a] === squares[b] &&
-        squares[a] === squares[c]
-      ) {
-        return squares[a];
-      }
-    }
-
-    return null;
-  }
 
   return (
     <div>
       <div className={styles.top}>
-        <img src={Logo} alt="Tic Tac Toe" />
-        <div className={styles.onTurn}>
-          <Icon icon={mark} size="sm" variant="fill" aria-label={mark} /> turn
+        <div className={styles.top_left}>
+          <img src={Logo} alt="Tic Tac Toe" />
+          <div className={styles.onTurn}>
+            <Icon
+              icon={onTurnMark}
+              size="sm"
+              variant="fill"
+              aria-label={onTurnMark}
+            />{' '}
+            turn
+          </div>
         </div>
-        <Button variant="bg-secondary" size="md" onClick={handleRestart}>
-          <Icon icon="home" size="sm" variant="fill-dark" aria-label="home" />
-        </Button>
-        <Button variant="bg-secondary" size="md">
-          <Icon
-            icon="undo"
-            size="sm"
-            variant="fill-dark"
-            aria-label="restart"
-          />
-        </Button>
-        <Button variant="bg-secondary" size="md" onClick={handleRestart}>
-          <Icon
-            icon="restart"
-            size="sm"
-            variant="fill-dark"
-            aria-label="restart"
-          />
-        </Button>
+        <div className={styles.top_right}>
+          <Button variant="bg-secondary" size="md" onClick={handleReset}>
+            <Icon icon="home" size="sm" variant="fill-dark" aria-label="home" />
+          </Button>
+          <Button variant="bg-secondary" size="md" onClick={handleRestart}>
+            <Icon
+              icon="restart"
+              size="sm"
+              variant="fill-dark"
+              aria-label="restart"
+            />
+          </Button>
+        </div>
       </div>
       <div className={styles.board}>
         {squares.map((square, index) => (
           <Square
             key={index}
             square={square}
-            mark={mark}
+            nextMark={onTurnMark}
+            squareHoverHide={autoPlay && userChoice !== onTurnMark}
             onClick={() => handleSquareClick(index)}
           />
         ))}
       </div>
       <div className={styles.summary}>
         <div className={styles.sum_px}>
-          <p>X (P2)</p>
+          <p>X ({getPlayerName(userChoice, 'x', autoPlay)})</p>
           <p>{score.x}</p>
         </div>
         <div className={styles.sum_ties}>
@@ -145,11 +134,19 @@ function Board({ withPC, selectedMark, setIsGameStart }) {
           <p>{score.tie}</p>
         </div>
         <div className={styles.sum_po}>
-          <p>O (P1)</p>
+          <p>O ({getPlayerName(userChoice, 'o', autoPlay)})</p>
           <p>{score.o}</p>
         </div>
       </div>
-      <ModalWrapper />
+      {winner && (
+        <ModalWrapper
+          winner={winner}
+          userChoice={userChoice}
+          autoPlay={autoPlay}
+          quitGame={handleReset}
+          restartGame={handleRestart}
+        />
+      )}
     </div>
   );
 }
@@ -157,7 +154,7 @@ function Board({ withPC, selectedMark, setIsGameStart }) {
 export default Board;
 
 Board.propTypes = {
-  withPC: PropTypes.bool.isRequired,
-  selectedMark: PropTypes.oneOf(['x', 'o']).isRequired,
-  setIsGameStart: PropTypes.func.isRequired,
+  setGameStart: PropTypes.func.isRequired,
+  autoPlay: PropTypes.bool.isRequired,
+  userChoice: PropTypes.oneOf(['x', 'o']).isRequired,
 };

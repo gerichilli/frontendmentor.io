@@ -1,22 +1,18 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './OpenMode.module.css';
 import Logo from '../../assets/images/logo.svg';
 import Button from '../Button';
 import Icon from '../Icon';
 
-function OpenMode({
-  setIsGameStart,
-  setWithPC,
-  selectedMark,
-  setSelectedMark,
-}) {
-  function handleNewGameClick(withPC) {
-    setIsGameStart(true);
-    setWithPC(withPC);
+function OpenMode({ setGameStart, setAutoPlay, userChoice, setUserChoice }) {
+  function handleNewGameClick(isAutoPlay) {
+    setGameStart(true);
+    setAutoPlay(isAutoPlay);
   }
 
   function handleChooseMark(e) {
-    setSelectedMark(e.target.value);
+    setUserChoice(e.target.value);
   }
 
   return (
@@ -26,30 +22,22 @@ function OpenMode({
         <fieldset>
           <legend>PICK PLAYER 1’S MARK</legend>
           <div className={styles.pickTags}>
-            <input
-              type="radio"
-              id="x-mark"
-              name="player-mark"
-              value="x"
-              className="sr-only"
-              checked={selectedMark === 'x'}
-              onChange={handleChooseMark}
-            />
-            <label htmlFor="x-mark">
-              <Icon icon="x" variant="fill" aria-label="x" />
-            </label>
-            <input
-              type="radio"
-              id="o-mark"
-              name="player-mark"
-              value="o"
-              className="sr-only"
-              checked={selectedMark === 'o'}
-              onChange={handleChooseMark}
-            />
-            <label htmlFor="o-mark">
-              <Icon icon="o" variant="fill" aria-label="o" />
-            </label>
+            {['x', 'o'].map((mark) => (
+              <React.Fragment key={mark}>
+                <input
+                  type="radio"
+                  id={`${mark}-mark`}
+                  name="playe{r-mark"
+                  value={mark}
+                  className="sr-only"
+                  checked={userChoice === mark}
+                  onChange={handleChooseMark}
+                />
+                <label htmlFor={`${mark}-mark`}>
+                  <Icon icon={mark} variant="fill" aria-label={mark} />
+                </label>
+              </React.Fragment>
+            ))}
           </div>
         </fieldset>
         <p>REMEMBER : X GOES FIRST</p>
@@ -77,8 +65,8 @@ function OpenMode({
 export default OpenMode;
 
 OpenMode.propTypes = {
-  setIsGameStart: PropTypes.func.isRequired,
-  setWithPC: PropTypes.func.isRequired,
-  selectedMark: PropTypes.oneOf(['x', 'o']).isRequired,
-  setSelectedMark: PropTypes.func.isRequired,
+  setGameStart: PropTypes.func.isRequired,
+  setAutoPlay: PropTypes.func.isRequired,
+  userChoice: PropTypes.oneOf(['x', 'o']).isRequired,
+  setUserChoice: PropTypes.func.isRequired,
 };

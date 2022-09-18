@@ -1,8 +1,8 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Square.module.css';
 import Icon from '../Icon';
 
-function Square({ square, mark, onClick }) {
+function Square({ square, nextMark, squareHoverHide, onClick }) {
   return (
     <button className={styles.square} onClick={onClick}>
       {square ? (
@@ -13,17 +13,28 @@ function Square({ square, mark, onClick }) {
           aria-label={square}
         />
       ) : (
-        <span>
-          <Icon
-            icon={`${mark}_outline`}
-            size="xl"
-            variant={`${mark}-outline`}
-            arial-label={mark}
-          />
-        </span>
+        <>
+          {!squareHoverHide && (
+            <span>
+              <Icon
+                icon={`${nextMark}_outline`}
+                size="xl"
+                variant={`${nextMark}-outline`}
+                arial-label={nextMark}
+              />
+            </span>
+          )}
+        </>
       )}
     </button>
   );
 }
 
 export default Square;
+
+Square.propTypes = {
+  square: PropTypes.oneOf(['x', 'o']),
+  nextMark: PropTypes.oneOf(['x', 'o']).isRequired,
+  squareHoverHide: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
